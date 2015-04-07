@@ -15,10 +15,17 @@
     "font-awesome": ">=4.1.0",
     "lodash": "~2.4.1",
     "angular-socket-io": "~0.6.0",
-    "angular-ui-router": "~0.2.10"
+    "angular-ui-router": "~0.2.10",
+    "polymer": "Polymer/polymer#^0.5"
   },
   "devDependencies": {
     "angular-mocks": ">=1.2.*",
-    "angular-scenario": ">=1.2.*"
+    "angular-scenario": ">=1.2.*",
+    "core-icon-button": "Polymer/core-icon-button#^0.5.0",
+    "font-roboto": "Polymer/font-roboto#^0.5.0",
+    "core-header-panel": "Polymer/core-header-panel#^0.5.0",
+    "core-toolbar": "Polymer/core-toolbar#^0.5.0",
+    "paper-tabs": "Polymer/paper-tabs#^0.5.0",
+    "core-ajax": "Polymer/core-ajax#^0.5.0"
   }
 }

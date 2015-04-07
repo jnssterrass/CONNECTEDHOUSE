@@ -22,3 +22,7 @@ function onSave(socket, doc, cb) {
 function onRemove(socket, doc, cb) {
   socket.emit('thing:remove', doc);
 }
+
+function broadcast(socket, doc, cb) {
+  socket.emit('thing:start', doc);
+}

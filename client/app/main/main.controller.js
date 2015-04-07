@@ -21,6 +21,18 @@ angular.module('connectedHouseApp')
       $http.delete('/api/things/' + thing._id);
     };
 
+    $scope.actionThing = function() {
+      $http.post('/api/things', { name: "1423" });
+    };
+
+    $scope.setStyle = function() {
+        $scope.subLeft = {'padding-left':'80px'};
+    }
+
+    $scope.nactionThing = function() {
+      $http.delete('/api/things/' + "1423");
+    };
+
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('thing');
     });
