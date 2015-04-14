@@ -1,27 +1,31 @@
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>Connected House</h1>
-  </div>
-</header>
+<div ng-include="'components/navbar/navbar.html'"></div>
 
+<div id="main">
 
-<div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Messages:</h1>
-      <ul class="nav nav-tabs nav-stacked col-lg-8 " ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}"> {{thing.name}} </li>
-          <!--
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}<button type="button" class="close" ng-click="deleteThing(thing)">&times;</button></a></li> -->
-      </ul>
-    </div>
-  </div>
+<div class="row">
+    <div class="col-md-4 col-lg-2">
+      <div class="input-group">
+          <input type="text" class="form-control" placeholder="Add gadgetID" ng-model="gadget_id" />
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-default" ng-click="add_gadget()">Add</button>
+          </span>
+      </div>
+      <br>
 
-<br><br><br>
+      <div class="list-group">
+        <a ng-repeat="gadget_id in gadgets" a href="#" class="list-group-item">
+          {{gadget_id}}
+          </a>
+      </div>
 
-<p class="input-group">
-  <button type="submit" class="btn btn-primary" ng-click="actionThing()">Action</button>
-</p>
+      </div>
 
+      <div class="col-md-8 col-lg-10" ng-repeat="card in cards">
+        <div class="alert alert-info" role="alert">
+          {{card}}
+          }<br><br>
+         </div>
+      </div>
+</div>
 
-<input type="checkbox" ng-model="vm.clarooscuro" ng-true-value="claro" ng-false-value="oscuro" />
+</div>
