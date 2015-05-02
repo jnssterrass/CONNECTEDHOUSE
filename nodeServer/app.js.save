@@ -1,0 +1,44 @@
+var express = require('express'),
+	bodyParser = require('body-parser'),
+	request = require('request');
+
+var app = express();
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: false }));
+
+app.post('/forwardtoarduino', function (req, res) {
+
+	var dev = req.body.device;
+	
+	console.log(req.body);
+	var options = {
+        	url: '192.168.1.177',
+        	form: {
+		    "device": req.body.device,
+		    "action": req.body.action,
+		    "value": req.body.value,
+		    "response": "dzjfgadhjfgfjh"
+		}
+		headers: {
+          		'Content-Type': 'application/x-www-form-urlencoded',	
+          		'Content-Length': post_data.length
+      		}
+	};
+	request.post(options, function (err, httpResponse, body) {
+
+            if (!err && httpResponse.statusCode == 200) {
+
+                console.log('success');
+		console.log(httpResponse);
+            
+            } else {
+
+            	console.log('pinch');
+		console.log(options.form.device);		
+            }
+        });
+});
+
+app.listen(8080, function () {
+	console.log('listening on 8080');
+});
