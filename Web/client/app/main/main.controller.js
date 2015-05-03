@@ -2,9 +2,6 @@
 
 angular.module('connectedHouseApp')
   .controller('MainCtrl', function ($scope, $http, socket) {
-    $scope.gadgets = [];
-    $scope.cards = [];
-
     /*
     $http.get('/api/things').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
@@ -15,7 +12,7 @@ angular.module('connectedHouseApp')
       $scope.awesomeThings = awesomeThings;
       socket.syncUpdates('thing', $scope.awesomeThings);
     });
-    */
+
     $scope.add_card = function(gadget_id) {
       var card = [];
       if(gadget_id === "111") {
@@ -45,6 +42,6 @@ angular.module('connectedHouseApp')
     $scope.change_status = function() {
       $http.post('/api/things', { name: $scope.newThing });
     };
-
+    */
 
   });

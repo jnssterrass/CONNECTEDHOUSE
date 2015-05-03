@@ -10,7 +10,7 @@
     <base href="/">
     <title>CHOUSE</title>
     <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
     <!-- build:css(client) app/vendor.css -->
       <!-- bower:css -->
@@ -18,7 +18,12 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
-      <!-- injector:css -->
+    <link rel="import" href="/bower_components/font-roboto/roboto.html">
+    <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="post-card.html">
+    <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
@@ -46,8 +51,8 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-socket-io/socket.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-      <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
       <script src="bower_components/polymer/polymer.js"></script>
+      <script src="/bower_components/webcomponentsjs/webcomponents.js"> </script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
@@ -60,7 +65,7 @@
           <script src="app/polymer/polymer.controller.js"></script>
           <script src="app/polymer/polymer.directive.js"></script>
           <script src="app/polymer/polymer.js"></script>
-          <script src="app/user/user.controller.js"></script>
+          <script src="app/users/users.directive.js"></script>
           <script src="components/modal/modal.service.js"></script>
           <script src="components/navbar/navbar.controller.js"></script>
           <script src="components/socket/socket.service.js"></script>
