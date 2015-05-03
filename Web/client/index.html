@@ -18,19 +18,17 @@
     <!-- endbuild -->
     <!-- build:css({.tmp,client}) app/app.css -->
     <link rel="stylesheet" href="app/app.css">
-    <link rel="import" href="/bower_components/font-roboto/roboto.html">
-    <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
-    <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
-    <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
-    <link rel="import" href="post-card.html">
+    <link rel="import" href="bower_components/font-roboto/roboto.html">
+    <link rel="import" href="bower_components/core-header-panel/core-header-panel.html">
+    <link rel="import" href="bower_components/core-toolbar/core-toolbar.html">
+    <link rel="import" href="bower_components/paper-tabs/paper-tabs.html">
+    <link rel="import" href="app/polymer/post-card.html">
     <!-- injector:css -->
       <!-- endinjector -->
     <!-- endbuild -->
   </head>
   <body ng-app="connectedHouseApp">
-    <!--[if lt IE 7]>
-      <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-    <![endif]-->
+    <ng-include"app/polymer/polymer.js"></ng-include>
 
     <!-- Add your site or application content here -->
     <div ui-view=""></div>
@@ -51,8 +49,8 @@
       <script src="bower_components/lodash/dist/lodash.compat.js"></script>
       <script src="bower_components/angular-socket-io/socket.js"></script>
       <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+      <script src="bower_components/webcomponentsjs/webcomponents.js"></script>
       <script src="bower_components/polymer/polymer.js"></script>
-      <script src="/bower_components/webcomponentsjs/webcomponents.js"> </script>
       <!-- endbower -->
       <script src="socket.io-client/socket.io.js"></script>
     <!-- endbuild -->
