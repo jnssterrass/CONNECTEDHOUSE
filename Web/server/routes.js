@@ -17,7 +17,18 @@ module.exports = function(app) {
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);
 
-  // All other routes should redirect to the index.html
+   //routes
+   app.route('/login')
+     .get(function(req, res) {
+       res.sendfile(app.get('appPath') + '/app/login/login.html');
+     });
+
+    app.route('/portada')
+       .get(function(req, res) {
+         res.sendfile(app.get('appPath') + '/index.html');
+       });
+
+
   /*
   app.route('/*')
     .get(function(req, res) {
