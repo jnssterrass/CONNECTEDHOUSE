@@ -48,7 +48,7 @@ app.use(flash());
 
 require('./config/socketio')(socketio);
 require('./config/express')(app);
-require('./routes')(app);
+require('./routes')(app,passport);
 
 app.post('/forwardtoarduino', function (req, res) {
 	var options = {
