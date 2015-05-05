@@ -54,7 +54,8 @@ text-transform: uppercase;
 }
 </style>
 </head>
-<body ng-app="connectedHouseApp">
+
+<body>
 <core-header-panel>
 <core-toolbar>
 <paper-tabs id="tabs" selected="all" self-end>
@@ -63,9 +64,9 @@ text-transform: uppercase;
 </paper-tabs>
 </core-toolbar>
 <!-- main page content will go here -->
-{{message="hola_angular"}}
 
-<div class="container">
+
+<div class="container" ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
 
     <post-card class="test">
       <img width="70" height="70" src="/assets/images/door.png">
@@ -101,6 +102,7 @@ tabs.addEventListener('core-select', function() {
 console.log("Selected: " + tabs.selected);
 });
 </script> -->
+
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/app/portada/portada.controller.js"></script>
 
