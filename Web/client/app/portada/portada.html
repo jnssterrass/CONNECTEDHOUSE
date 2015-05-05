@@ -37,7 +37,6 @@ margin: 0;
 user-select: none;
 text-transform: uppercase;
 }
-
 .container {
   width: 80%;
   margin: 50px 50px 50px 50px;
@@ -49,16 +48,13 @@ text-transform: uppercase;
   .container {
   width: 400px;
   }
-
   .test {
   margin: 50px 50px 50px 50px;
   }
-
 }
 </style>
 </head>
-
-<body unresolved>
+<body ng-app="connectedHouseApp">
 <core-header-panel>
 <core-toolbar>
 <paper-tabs id="tabs" selected="all" self-end>
@@ -67,13 +63,14 @@ text-transform: uppercase;
 </paper-tabs>
 </core-toolbar>
 <!-- main page content will go here -->
-
+{{message="hola_angular"}}
 
 <div class="container">
 
     <post-card class="test">
       <img width="70" height="70" src="/assets/images/door.png">
-      <h2>{{hola}}</h2>
+
+      <h2>{{message}}</h2>
       <p> Estado: Abierta </p>
       <p>Cerrado automatico a las 19:00h</p>
       <p> + Acciones </p>
@@ -97,13 +94,15 @@ text-transform: uppercase;
 </div>
 
 
-
+<!--
 <script>
 var tabs = document.querySelector('paper-tabs');
 tabs.addEventListener('core-select', function() {
 console.log("Selected: " + tabs.selected);
 });
-</script>
+</script> -->
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/app/portada/portada.controller.js"></script>
 
 
 </body>
