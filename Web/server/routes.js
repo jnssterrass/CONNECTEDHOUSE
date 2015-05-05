@@ -34,14 +34,15 @@ console.log(app.get('appPath'));
     //Login screen
 
     app.get('/', function(req, res) {
-      
+
       res.sendfile(config.root+'/client/app/login/login.html');
     });
 
 
     // Portada screen
+
     app.get('/portada', isLoggedIn, function(req, res) {
-       res.sendfile(config.root+ '/client/index.html', {
+       res.sendfile(config.root+ '/client/app/portada/portada.html', {
            user : req.user
        });
     });

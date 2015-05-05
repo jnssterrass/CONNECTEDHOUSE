@@ -35,11 +35,12 @@ var app = express();
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false }));
 var server = require('http').createServer(app);
+/*
 var socketio = require('socket.io')(server, {
   serveClient: (config.env === 'production') ? false : true,
   path: '/socket.io-client'
 });
-
+*/
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -49,7 +50,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
-require('./config/socketio')(socketio);
+//require('./config/socketio')(socketio);
 require('./config/express')(app);
 require('./config/passport')(passport);
 require('./routes')(app,passport);

@@ -1,16 +1,16 @@
 'use strict';
 
-describe('Controller: PolymerCtrl', function () {
+describe('Controller: PortadaCtrl', function () {
 
   // load the controller's module
   beforeEach(module('connectedHouseApp'));
 
-  var PolymerCtrl, scope;
+  var PortadaCtrl, scope;
 
   // Initialize the controller and a mock scope
   beforeEach(inject(function ($controller, $rootScope) {
     scope = $rootScope.$new();
-    PolymerCtrl = $controller('PolymerCtrl', {
+    PortadaCtrl = $controller('PortadaCtrl', {
       $scope: scope
     });
   }));

@@ -1,6 +1,6 @@
 'use strict';
 
 angular.module('connectedHouseApp')
-  .controller('PolymerCtrl', function ($scope) {
+  .controller('PortadaCtrl', function ($scope) {
     $scope.message = 'Hello';
   });
