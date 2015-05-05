@@ -21,11 +21,14 @@ var cookieParser = require('cookie-parser');
 var bodyParser   = require('body-parser');
 var session      = require('express-session');
 
+var configDB = require('./config/database.js');
+mongoose.connect(configDB.url);
+
 // Connect to database
-mongoose.connect(config.mongo.uri, config.mongo.options);
+//mongoose.connect(config.mongo.uri, config.mongo.options);
 
 // Populate DB with sample data
-if(config.seedDB) { require('./config/seed'); }
+//if(config.seedDB) { require('./config/seed'); }
 
 // Setup server
 var app = express();
@@ -48,6 +51,7 @@ app.use(flash());
 
 require('./config/socketio')(socketio);
 require('./config/express')(app);
+require('./config/passport')(passport);
 require('./routes')(app,passport);
 
 app.post('/forwardtoarduino', function (req, res) {
