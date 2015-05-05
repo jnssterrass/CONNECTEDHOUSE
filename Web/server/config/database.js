@@ -1,4 +1,4 @@
 // config/database.js
 module.exports = {
-    'url' : 'mongodb://localhost/pruebalogin' 
+    'url' : 'mongodb://localhost/connectedhouse-dev' 
 };
