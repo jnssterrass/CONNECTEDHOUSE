@@ -10,6 +10,7 @@ var config = require('./config/environment');
 
 module.exports = function(app, passport) {
  // Insert routes below
+ app.use('/api/devices', require('./api/devices'));
   app.use('/api/repo', require('./api/repo'));
   app.use('/api/messages', require('./api/message'));
   app.use('/api/things', require('./api/thing'));
