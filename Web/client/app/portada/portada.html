@@ -68,29 +68,15 @@ text-transform: uppercase;
 
 <div class="container" ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
 
-    <post-card class="test">
-      <img width="70" height="70" src="/assets/images/door.png">
+    <post-card ng-repeat ="device in devices" class="test">
+      <img width="70" height="70" src="/assets/images/{{device}}.png">
 
-      <h2>{{message}}</h2>
+      <h2>{{device}}</h2>
       <p> Estado: Abierta </p>
       <p>Cerrado automatico a las 19:00h</p>
       <p> + Acciones </p>
     </post-card>
 
-    <post-card class="test">
-      <img width="70" height="70" src="/assets/images/tv.png">
-      <h2>Televisión Sony Bravia</h2>
-      <p> Estado: ON: Canal Divinity </p>
-      <p> + Acciones </p>
-    </post-card>
-
-
-    <post-card class="test">
-      <img width="70" height="70" src="/assets/images/garage.png">
-      <h2>Puerta Garaje</h2>
-      <p> Estado: Cerrada </p>
-      <p> + Acciones </p>
-    </post-card>
 
 </div>
 
