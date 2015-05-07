@@ -67,10 +67,10 @@ text-transform: uppercase;
 
 
 <div class="container" ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
-    <post-card class="test" ng-repeat ="device in devices" ng-init="info=device_info(device)">
+    <post-card class="test" ng-repeat ="device in devices">
 
           <img width="70" height="70" src="/assets/images/{{device}}.png">
-          <h2>{{info.name}}</h2>
+          <h2>{{devices}}</h2>
           <p> Estado: Abierta </p>
           <p>Cerrado automatico a las 19:00h</p>
           <p> + Acciones </p>
