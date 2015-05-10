@@ -73,7 +73,7 @@ app.put('/changestatus:id', function(req, res){
 
       devices.save(function(err) {
         if(!err){
-          console.log('New device on da house');
+          console.log('Status changed');
         }
         else {
           console.log('ERROR:' + err);
@@ -81,6 +81,22 @@ app.put('/changestatus:id', function(req, res){
         res.send(devices);
       });
    });
+});
+
+
+app.delete('/deletetask:id', function(req,res){
+  console.log('DELETE');
+  console.log(req.body);
+
+  Devices.findById(req.params.id, function(err, devices) {
+    		devices.remove(function(err) {
+    			if(!err) {
+    				console.log('Removed task from system');
+    			} else {
+    				console.log('ERROR: ' + err);
+    			}
+    		});
+    });
 });
 
 //===== Users ====== //
