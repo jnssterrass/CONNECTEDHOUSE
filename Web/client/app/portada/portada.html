@@ -10,7 +10,7 @@
 <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
 <link rel="import" href="/app/portada/post-card.html">
-
+<link rel="import" href="/app/portada/paper-action-dialog.html">
 
 <style>
 html,body {
@@ -53,6 +53,9 @@ text-transform: uppercase;
   }
 }
 </style>
+<link rel="stylesheet" href="/assets/css/bootstrap.css">
+<link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
+
 </head>
 
 <body>
@@ -66,30 +69,23 @@ text-transform: uppercase;
 <!-- main page content will go here -->
 
 
-<div class="container" ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
-    <post-card class="test" ng-repeat ="device in devices">
-
-          <img width="70" height="70" src="/assets/images/{{device}}.png">
-          <h2>{{device}}</h2>
-          <p> Estado: Abierta </p>
-          <p>Cerrado automatico a las 19:00h</p>
-          <p> + Acciones </p>
-      </div>
-    </post-card>
-
-
+<div class="row">
+    <div ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
+        <div class="col-md-4">
+          <post-card class="test" ng-repeat ="device in devices">
+            <img width="70" height="70" src="/assets/images/{{device}}.png">
+            <h2>{{device}}</h2>
+            <p> Estado: Abierta </p>
+            <p>Cerrado automatico a las 19:00h</p>
+            <button type="submit" class="btn btn-default">Actions</button>
+          </post-card>
+        </div>
+    </div>
 </div>
 
-
-<!--
-<script>
-var tabs = document.querySelector('paper-tabs');
-tabs.addEventListener('core-select', function() {
-console.log("Selected: " + tabs.selected);
-});
-</script> -->
-
 <script src="/bower_components/angular/angular.js"></script>
+<script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
+<script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/app/portada/portada.controller.js"></script>
 
 
