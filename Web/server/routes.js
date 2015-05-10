@@ -22,13 +22,14 @@ console.log(app.get('appPath'));
    .get(errors[404]);
 
   // All other routes should redirect to the index.html
-  /*
-  app.route('/*')
+  //Parche para poder acceder a portada creo que falla algon con
+  //la BD. todo este app.route tiene que ir fuera
+  app.route('/portada')
     .get(function(req, res) {
-      res.sendFile(app.get('appPath') + '/index.html');
+      res.sendFile(config.root + '/client/app/portada/portada.html');
     });
     console.log(config.root);
-    */
+
 
 // normal routes ===============================================================
 
