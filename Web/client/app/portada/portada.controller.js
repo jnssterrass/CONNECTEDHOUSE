@@ -13,16 +13,23 @@ app.factory('Devices_info', function ($resource) {
 });
 */
 
-
-
-
 app.controller('PortadaCtrl', function ($scope, $http) {
+      $scope.action = "test";
+      $http.get('http://localhost:9000/findAlldevices').
+        success(function(data, status, headers, config) {
+          $scope.devices = data;
+      }).error(function(data, status, headers, config) {
+          alert('Error!');
+      });
 
-      $scope.devices = [];
-      $scope.devices.push("34");
-      $scope.devices.push("51");
-      $scope.devices.push("8");
-      $scope.devices.push("7");
-
-
-  });
+      $scope.newtask = function(deviceid,action){
+        $http.post('http://localhost:9000/newtask',
+            {device_id: deviceid,action   : action}
+        ).success(function(data, status, headers, config) {
+          alert('SomethingGoodHappens!');
+        }).error(function(data, status, headers, config) {
+          alert('Error!');
+        });
+        alert(deviceid);
+      }
+});

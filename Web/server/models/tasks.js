@@ -2,7 +2,7 @@ var mongoose = require('mongoose'),
     Schema   = mongoose.Schema;
 
 var tasksSchema = new Schema({
-  device_id:{ type: Number },
+  device_id:{ type: String },
   action:   { type: String }
 });
 
