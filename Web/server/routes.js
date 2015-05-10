@@ -9,11 +9,9 @@ var config = require('./config/environment');
 module.exports = function(app, passport, mongoose) {
 
 //===== API REST ====== //
-
+var pool      = require('./models/pool.js');
 var devices   = require('./models/devices.js');
 var users     = require('./models/users.js');
-var pooltask  = require('./models/pooltask.js');
-
 
 //===== Devices ====== //
 app.get('/findAlldevices', function(req, res) {
@@ -52,18 +50,18 @@ app.get('/findAllUsers', function(req, res) {
 
 
 //===== Pool Task ====== //
-app.get('/pooltask', function(req, res) {
-  pooltask.find(function(err, pooltask) {
+app.get('/pool', function(req, res) {
+  pool.find(function(err, pool) {
   		if(!err) {
-        console.log('GET /pooltask')
-  			res.send(pooltask);
+        console.log('GET /pool')
+  			res.send(pool);
   		} else {
   			console.log('ERROR: ' + err);
   		}
   	});
 });
 
-
+/*
 app.post('/newtask', function(req, res){
     console.log('POST');
     console.log(req.body);
@@ -84,7 +82,7 @@ app.post('/newtask', function(req, res){
       }
     });
     res.send(pooltask);
-});
+});*/
 
 //===== END API REST ====== //
 
