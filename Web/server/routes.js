@@ -84,6 +84,26 @@ app.put('/changestatus:id', function(req, res){
 });
 
 
+app.put('/changename:id', function(req, res){
+    console.log('PUT');
+    console.log(req.body);
+
+    Devices.findById(req.params.id, function(err, devices) {
+      devices.name     = req.body.name;
+      
+      devices.save(function(err) {
+        if(!err){
+          console.log('Name changed');
+        }
+        else {
+          console.log('ERROR:' + err);
+        }
+        res.send(devices);
+      });
+   });
+});
+
+
 app.delete('/deletetask:id', function(req,res){
   console.log('DELETE');
   console.log(req.body);
