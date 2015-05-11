@@ -43,8 +43,19 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
         ).success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {
-
         });
-
       }
+
+
+      $scope.newname = function(deviceid,devicename){
+        var path = 'http://localhost:9000/changename' + deviceid;
+        alert(path);
+        $http.post(path,
+            {name: devicename}
+        ).success(function(data, status, headers, config) {
+
+        }).error(function(data, status, headers, config) {
+        });
+      }
+
 });
