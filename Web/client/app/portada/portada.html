@@ -71,12 +71,10 @@ text-transform: uppercase;
         <img width="70" height="70" src="/assets/images/{{device.device_id}}.png">
           <h2 ng-hide="showme">{{device.name}}</h2>
           <h2><div ng-show="showme">
-
             <label>Custom name: <input type="text" ng-model="name"></label><br>
-
-            <button type="submit" class="btn btn-default" ng-click="newname(device._id,name)">Save</button>
-          </div></h2>
-          <a href="" ng-click="showme=true">edit</a>
+            <button type="submit" class="btn btn-default"  ng-click="newname(device._id,name,device.device_id, device.address, device.status)">Save</button>
+            </div>  </h2>
+          <a href="" ng-click="showme=true"> edit</a>
 
           <div ng-repeat="statu_info in status_info | filter:{ 'id':device.status} ">
               <p> Status: {{statu_info.dsc}}</p>

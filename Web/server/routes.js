@@ -90,7 +90,12 @@ app.put('/changename:id', function(req, res){
 
     Devices.findById(req.params.id, function(err, devices) {
       devices.name     = req.body.name;
-      
+      devices.name     = req.body.name;
+      devices.device_id= req.body.device_id;
+      devices.address  = req.body.address;
+      devices.status   = req.body.status;
+
+
       devices.save(function(err) {
         if(!err){
           console.log('Name changed');
