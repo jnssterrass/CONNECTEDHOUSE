@@ -17,7 +17,7 @@ app.factory('Status', function ($mongolabResourceHttp) {
 });
 
 app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status) {
-      $scope.action = "test";
+
       $http.get('http://localhost:9000/findAlldevices').
         success(function(data, status, headers, config) {
           $scope.devices = data;
@@ -29,19 +29,22 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
         $scope.devices_info = devices;
       });
 
-      Actions.all().then(function(devices){
+      Actions.all().then(function(actions){
         $scope.actions_info = actions;
       });
 
+      Status.all().then(function(status){
+        $scope.status_info = status;
+      });
 
       $scope.newtask = function(deviceid,action){
         $http.post('http://localhost:9000/newtask',
-            {device_id: deviceid,action   : action}
+            {device_id: deviceid,action : action}
         ).success(function(data, status, headers, config) {
-          alert('SomethingGoodHappens!');
+
         }).error(function(data, status, headers, config) {
-          alert('Error!');
+
         });
-        alert(deviceid);
+
       }
 });

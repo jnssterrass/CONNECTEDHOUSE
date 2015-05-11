@@ -66,13 +66,22 @@ text-transform: uppercase;
 
   <!-- main page content will go here -->
   <div class="container" ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
-      {{devices_info}}
       <post-card class="test" ng-repeat ="device in devices">
         <img width="70" height="70" src="/assets/images/{{device.device_id}}.png">
           <h2>{{device.name}}</h2>
-          <p> Status: {{device.status}} </p>
-          <button type="submit" class="btn btn-default"
-          ng-click="newtask(device._id,action)">Actions</button>
+
+          <div ng-repeat="statu_info in status_info | filter:{ 'id':device.status} ">
+            <p> Status: {{statu_info.dsc}}</p>
+          </div>
+
+          <div ng-repeat="device_info in devices_info | filter:{ 'device_id':device.device_id} ">
+              <div ng-repeat="action in device_info.actions">
+                <div ng-repeat="action_info in actions_info | filter: {'action_id': action}">
+                  <button type="submit" class="btn btn-default" ng-click="newtask(device._id, action_info.action_id)">{{action_info.dsc}}</button>
+                </div>
+              </div>
+          </div>
+
         </post-card>
   </div>
 
