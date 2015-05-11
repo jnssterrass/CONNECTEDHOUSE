@@ -60,7 +60,6 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
         }).error(function(data, status, headers, config) {
           alert('Error!');
         });
-        $scope.showme="false";
       }
 
 });
