@@ -1,19 +1,22 @@
 'use strict';
 
-var app = angular.module('connectedHouseApp',  []);
+var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp']);
 
-/*
-app.factory('Devices_info', function ($resource) {
-   var Devices_info = $resource('https://api.mongolab.com/api/1/databases/ch-repo/collections/devices:id',
-   {
-     apiKey:'2UkXrp3c_Kk9rJgB3PBfNL1zH2lg_xSd',
-     id:'@_id.$oid'
-   });
-   return Devices_info;
+app.constant('MONGOLAB_CONFIG',{API_KEY:'2UkXrp3c_Kk9rJgB3PBfNL1zH2lg_xSd', DB_NAME:'ch-repo'});
+
+app.factory('Devices', function ($mongolabResourceHttp) {
+    return $mongolabResourceHttp('devices');
 });
-*/
 
-app.controller('PortadaCtrl', function ($scope, $http) {
+app.factory('Actions', function ($mongolabResourceHttp) {
+    return $mongolabResourceHttp('actions');
+});
+
+app.factory('Status', function ($mongolabResourceHttp) {
+    return $mongolabResourceHttp('status');
+});
+
+app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status) {
       $scope.action = "test";
       $http.get('http://localhost:9000/findAlldevices').
         success(function(data, status, headers, config) {
@@ -21,6 +24,15 @@ app.controller('PortadaCtrl', function ($scope, $http) {
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });
+
+      Devices.all().then(function(devices){
+        $scope.devices_info = devices;
+      });
+
+      Actions.all().then(function(devices){
+        $scope.actions_info = actions;
+      });
+
 
       $scope.newtask = function(deviceid,action){
         $http.post('http://localhost:9000/newtask',
