@@ -18,6 +18,8 @@ app.factory('Status', function ($mongolabResourceHttp) {
 
 app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status) {
 
+      $scope.toggle = true;
+
       $http.get('http://localhost:9000/findAlldevices').
         success(function(data, status, headers, config) {
           $scope.devices = data;
@@ -48,6 +50,7 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
 
 
       $scope.newname = function(deviceid,devicename,device_id,address,status){
+
         var path = 'http://localhost:9000/changestatus' + deviceid;
         $http.put(path,
            { name: devicename,
@@ -61,5 +64,4 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
           alert('Error!');
         });
       }
-
 });

@@ -57,15 +57,18 @@ text-transform: uppercase;
 <body>
 <core-header-panel>
 
+  <div  ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
+
+  <!--HEADER -->
   <core-toolbar>
       <paper-tabs id="tabs" selected="all" self-end>
-          <paper-tab name="Gadgets">Gadgets</paper-tab>
-          <paper-tab name="favorites">Users</paper-tab>
+          <paper-tab name="Devices" ng-click="toggle = true"> Gadgets </paper-tab>
+          <paper-tab name="Config"  ng-click="toggle = false"> Config </paper-tab>
       </paper-tabs>
   </core-toolbar>
 
-  <!-- main page content will go here -->
-  <div class="container" ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
+  <!-- DEVICES -->
+  <div class="container" ng-show="toggle">
       <post-card class="test" ng-repeat ="device in devices">
 
         <img width="70" height="70" src="/assets/images/{{device.device_id}}.png">
@@ -73,7 +76,9 @@ text-transform: uppercase;
           <h2><div ng-show="showme">
             <label>Custom name: <input type="text" ng-model="name"></label><br>
             <small>IP address: {{device.address}}</small><br>
-            <button type="submit" class="btn btn-default" ng-click="newname(device._id,name,device.device_id, device.address, device.status)">Save</button>
+            <div ng-click="showme=false">
+              <button type="submit" class="btn btn-default" ng-click="newname(device._id,name,device.device_id, device.address, device.status)">Save</button>
+            </div>
             <button type="submit" class="btn btn-default" ng-click="showme=false">Cancel</button>
             </div>  </h2>
           <a href="" ng-hide="showme" ng-click="showme=true"> edit</a>
@@ -91,10 +96,35 @@ text-transform: uppercase;
           </div>
 
         </post-card>
+      </div>
+
+
+    <!-- USERS -->
+    <div class="container" ng-hide="toggle">
+      users view
+      users view
+      users view
+      users view
+      users view
+   </div>
+
+
+
+
+
+
+
+
   </div>
 
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/assets/angular-mongolab.js"></script>
+<script>
+  var tabs = document.querySelector('paper-tabs');
+  tabs.addEventListener('core-select', function() {
+    console.log("Selected: " + tabs.selected);
+  });
+</script>
 <script src="/app/portada/portada.controller.js"></script>
 
 
