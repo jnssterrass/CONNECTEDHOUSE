@@ -16,6 +16,7 @@ app.factory('Status', function ($mongolabResourceHttp) {
     return $mongolabResourceHttp('status');
 });
 
+
 app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status) {
 
       $scope.toggle = true;
@@ -23,6 +24,13 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
       $http.get('http://localhost:9000/findAlldevices').
         success(function(data, status, headers, config) {
           $scope.devices = data;
+      }).error(function(data, status, headers, config) {
+          alert('Error!');
+      });
+
+      $http.get('http://localhost:9000/findAllUsers').
+        success(function(data, status, headers, config) {
+          $scope.users = data;
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });

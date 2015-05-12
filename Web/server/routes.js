@@ -14,6 +14,20 @@ var Devices   = require('./models/devices.js');
 var Users     = require('./models/users.js');
 var Tasks     = require('./models/tasks.js');
 var http      = require('http');
+
+//===== Users ====== //
+
+app.get('/findAllUsers', function(req, res) {
+  	Users.find(function(err, users) {
+  		if(!err) {
+        console.log('GET /users')
+  			res.send(users);
+  		} else {
+  			console.log('ERROR: ' + err);
+  		}
+  	});
+});
+
 //===== Devices ====== //
 app.get('/findAlldevices', function(req, res) {
   	Devices.find(function(err, devices) {

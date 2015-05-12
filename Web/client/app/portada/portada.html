@@ -62,7 +62,7 @@ text-transform: uppercase;
   <!--HEADER -->
   <core-toolbar>
       <paper-tabs id="tabs" selected="all" self-end>
-          <paper-tab name="Devices" ng-click="toggle = true"> Gadgets </paper-tab>
+          <paper-tab name="Devices" ng-click="toggle = true"> Devices </paper-tab>
           <paper-tab name="Config"  ng-click="toggle = false"> Config </paper-tab>
       </paper-tabs>
   </core-toolbar>
@@ -101,11 +101,16 @@ text-transform: uppercase;
 
     <!-- USERS -->
     <div class="container" ng-hide="toggle">
-      users view
-      users view
-      users view
-      users view
-      users view
+      <post-card class="test" ng-repeat ="user in users">
+        <img width="70" height="70" src="/assets/images/avatar.jpg">
+        <h2> {{user.local.user}} </h2>
+      </post-card>
+
+      <post-card class="test">
+        <img width="70" height="70" src="/assets/images/sum.png">
+        <h2> New user </h2>
+
+      </post-card>
    </div>
 
 
@@ -119,12 +124,6 @@ text-transform: uppercase;
 
 <script src="/bower_components/angular/angular.js"></script>
 <script src="/assets/angular-mongolab.js"></script>
-<script>
-  var tabs = document.querySelector('paper-tabs');
-  tabs.addEventListener('core-select', function() {
-    console.log("Selected: " + tabs.selected);
-  });
-</script>
 <script src="/app/portada/portada.controller.js"></script>
 
 
