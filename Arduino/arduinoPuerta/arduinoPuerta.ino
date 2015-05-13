@@ -50,23 +50,27 @@ void setup() {
 }
 
 String getDevice(const String& request) {
-  int indexFrom = request.indexOf("device")+11;
-  int indexTo = request.indexOf("------",indexFrom)-2;  
+  int indexFrom = request.indexOf("device")+1;
+  int indexTo = request.indexOf("&",indexFrom);  
   String device = request.substring(indexFrom,indexTo);
   return device;
 }
 
 String getAction(const String& request) {
-  int indexFrom = request.indexOf("action")+11;
-  int indexTo = request.indexOf("------",indexFrom)-2;
+  int indexFrom = request.indexOf("action")+1;
+  int indexTo = request.indexOf("&",indexFrom);
   String action = request.substring(indexFrom,indexTo);
   return action;
 }
 
 String getValue(const String& request) {
-  int indexFrom = request.indexOf("value")+10;
-  int indexTo = request.indexOf("------",indexFrom)-2;
-  String value = request.substring(indexFrom,indexTo);
+  int indexFrom = request.indexOf("value")+1;
+  if (request.indexOf("&")){
+    int indexTo = request.indexOf("");
+    String value = request.substring(indexFrom,indexTo);
+  }else{
+    String value = request.substring(indexFrom);
+  }
   return value;
 }
 
@@ -189,3 +193,4 @@ void loop() {
     Serial.println("client disconnected");
   }
 }
+
