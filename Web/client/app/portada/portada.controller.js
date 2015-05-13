@@ -1,6 +1,7 @@
 'use strict';
 
-var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp']);
+var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp','ngResource']);
+
 
 app.constant('MONGOLAB_CONFIG',{API_KEY:'2UkXrp3c_Kk9rJgB3PBfNL1zH2lg_xSd', DB_NAME:'ch-repo'});
 
@@ -17,18 +18,19 @@ app.factory('Status', function ($mongolabResourceHttp) {
 });
 
 
-app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status) {
+app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Actions, Status) {
+
 
       $scope.toggle = true;
-
-      $http.get('http://localhost:9000/findAlldevices').
+      //$http.get('http://localhost:9000/findAlldevices').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/findAlldevices').
         success(function(data, status, headers, config) {
           $scope.devices = data;
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });
 
-      $http.get('http://localhost:9000/findAllUsers').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/findAllUsers').
         success(function(data, status, headers, config) {
           $scope.users = data;
       }).error(function(data, status, headers, config) {
@@ -47,8 +49,27 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
         $scope.status_info = status;
       });
 
+
+/*
+        $http.get('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=perro')
+        .success(function(data) {
+            alert(data.ok);
+        });
+
+*/
+/*
+      $http.get('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=perro').
+            success(function(data, status, headers, config) {
+                $scope.photos = data;
+          }).error(function(data, status, headers, config) {
+              alert('Error!');
+          });
+          alert($scope.photos);
+
+*/
+
       $scope.newtask = function(deviceid,action){
-        $http.post('http://localhost:9000/newtask',
+        $http.post('http://connectedhouseweb.no-ip.org:9000/newtask',
             {device_id: deviceid,action : action}
         ).success(function(data, status, headers, config) {
 
@@ -59,7 +80,7 @@ app.controller('PortadaCtrl', function ($scope, $http, Devices, Actions, Status)
 
       $scope.newname = function(deviceid,devicename,device_id,address,status){
 
-        var path = 'http://localhost:9000/changestatus' + deviceid;
+        var path = 'http://connectedhouseweb.no-ip.org:9000/changestatus' + deviceid;
         $http.put(path,
            { name: devicename,
              device_id : device_id,
