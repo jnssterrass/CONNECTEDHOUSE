@@ -55,7 +55,6 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
         .success(function(data) {
             alert(data.ok);
         });
-
 */
 /*
       $http.get('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=perro').
@@ -65,7 +64,6 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
               alert('Error!');
           });
           alert($scope.photos);
-
 */
 
       $scope.newtask = function(deviceid,action){
@@ -97,7 +95,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
 
       $scope.newuser = function(user, password) {
         $http.post('http://localhost:9000/signup',
-            {"user":user,"password":password}
+            {user: user,password : password}
         ).success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {
