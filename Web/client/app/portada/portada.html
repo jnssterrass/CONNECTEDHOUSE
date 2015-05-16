@@ -107,8 +107,14 @@ text-transform: uppercase;
       </post-card>
 
       <post-card class="test">
-        <img width="70" height="70" src="/assets/images/sum.png">
-        <h2> New user </h2>
+          <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
+          <h2> New user </h2>
+          <div ng-show="showsign">
+              User:      <input type="text" ng-model="user"></label><br>
+              Password:  <input type="text" ng-model="password"></label><br>
+              <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
+          </div>
+        </div>
 
       </post-card>
    </div>

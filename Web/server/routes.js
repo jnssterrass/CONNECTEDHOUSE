@@ -13,6 +13,7 @@ module.exports = function(app, passport, mongoose) {
 var Devices   = require('./models/devices.js');
 var Users     = require('./models/users.js');
 var Tasks     = require('./models/tasks.js');
+var Signin    = require('./app/models/user.js');
 var http      = require('http');
 
 //===== Users ====== //
@@ -254,6 +255,7 @@ console.log(app.get('appPath'));
       // SIGNUP =================================
       // show the signup form
       app.get('/signup', function(req, res) {
+
          res.sendFile(config.root + '/client/app/login/signup.html', { message: req.flash('signupMessage') });
      });
 
