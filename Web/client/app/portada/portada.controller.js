@@ -97,7 +97,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
 
       $scope.newuser = function(user, password) {
         $http.post('http://localhost:9000/signup',
-            {user: user,password : password}
+            {"user":user,"password":password}
         ).success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {

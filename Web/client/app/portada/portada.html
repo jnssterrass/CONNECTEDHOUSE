@@ -87,14 +87,21 @@ text-transform: uppercase;
               <p> Status: {{statu_info.dsc}}</p>
           </div>
 
-          <div ng-repeat="device_info in devices_info | filter:{ 'device_id':device.device_id} ">
-              <div ng-repeat="action in device_info.actions">
-                <div ng-repeat="action_info in actions_info | filter: {'action_id': action}">
-                  <button type="submit" class="btn btn-default" ng-click="newtask(device._id, action_info.action_id)">{{action_info.dsc}}</button>
+          <div>
+          <div ng-click="showactions=!showactions">
+                <div ng-show="showactions">- Actions</div>
+                <div ng-hide="showactions">+ Actions</div>
+         </div>
+         
+          <div ng-show="showactions">
+            <div ng-repeat="device_info in devices_info | filter:{ 'device_id':device.device_id} ">
+                <div ng-repeat="action in device_info.actions">
+                  <div ng-repeat="action_info in actions_info | filter: {'action_id': action}">
+                    <button type="submit" class="btn btn-default" ng-click="newtask(device._id, action_info.action_id)">{{action_info.dsc}}</button>
+                  </div>
                 </div>
-              </div>
+            </div>
           </div>
-
         </post-card>
       </div>
 
