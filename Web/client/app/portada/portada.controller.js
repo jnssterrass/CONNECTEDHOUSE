@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp','ngResource']);
+var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp','ngResource', 'ui.bootstrap']);
 
 
 app.constant('MONGOLAB_CONFIG',{API_KEY:'2UkXrp3c_Kk9rJgB3PBfNL1zH2lg_xSd', DB_NAME:'ch-repo'});
@@ -20,7 +20,9 @@ app.factory('Status', function ($mongolabResourceHttp) {
 
 app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Actions, Status) {
 
-
+      $scope.mytime = new Date();
+      $scope.hstep = 1;
+      $scope.mstep = 5;
       $scope.toggle = true;
       //$http.get('http://localhost:9000/findAlldevices').
       $http.get('http://localhost:9000/findAlldevices').
@@ -55,8 +57,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
         .success(function(data) {
             alert(data.ok);
         });
-*/
-/*
+
       $http.get('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=perro').
             success(function(data, status, headers, config) {
                 $scope.photos = data;
@@ -67,8 +68,11 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
 */
 
       $scope.newtask = function(deviceid,action){
+        var time = $scope.mytime;
+
+
         $http.post('http://localhost:9000/newtask',
-            {device_id: deviceid,action : action}
+            {device_id: deviceid,action : action, date:time}
         ).success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {
@@ -76,6 +80,12 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
         });
       }
 
+      $scope.update = function() {
+          var d = new Date();
+          d.setHours( 14 );
+          d.setMinutes( 0 );
+          $scope.mytime = d;
+        };
 
       $scope.newname = function(deviceid,devicename,device_id,address,status){
 

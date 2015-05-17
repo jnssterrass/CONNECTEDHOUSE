@@ -4,11 +4,17 @@
 <title>Conected-House</title>
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/bower_components/webcomponentsjs/webcomponents.js"> </script>
 <link rel="import" href="/bower_components/font-roboto/roboto.html">
 <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="/bower_components/core-media-query/core-media-query.html">
+
+<link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
 <link rel="import" href="/app/portada/post-card.html">
 
 <style>
@@ -37,25 +43,23 @@ user-select: none;
 text-transform: uppercase;
 }
 .container {
-  width: 80%;
-  margin: 50px 50px 50px 50px;
+  width: 100%;
 }
 @media (min-width: 481px) {
   #tabs {
   width: 200px;
   }
   .container {
-  width: 400px;
-  }
-  .test {
-  margin: 50px 50px 50px 50px;
+  width: 100%;
+
   }
 }
 </style>
 </head>
 
-<body>
-<core-header-panel>
+<body fullbleed layout vertical>
+
+<core-header-panel flex>
 
   <div  ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
 
@@ -68,9 +72,9 @@ text-transform: uppercase;
   </core-toolbar>
 
   <!-- DEVICES -->
-  <div class="container" ng-show="toggle">
-      <post-card class="test" ng-repeat ="device in devices">
-
+  <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
+  <div flex wrap layout horizontal class="container" ng-show="toggle"  ng-repeat ="device in devices">
+      <post-card class="test">
         <img width="70" height="70" src="/assets/images/{{device.device_id}}.png">
           <h2 ng-hide="showme">{{device.name}}</h2>
           <h2><div ng-show="showme">
@@ -94,6 +98,7 @@ text-transform: uppercase;
        </div>
 
         <div ng-show="showactions">
+            <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
           <div ng-repeat="device_info in devices_info | filter:{ 'device_id':device.device_id} ">
               <div ng-repeat="action in device_info.actions">
                 <div ng-repeat="action_info in actions_info | filter: {'action_id': action}">
@@ -106,12 +111,17 @@ text-transform: uppercase;
     </div>
 
     <!-- USERS -->
-    <div class="container" ng-hide="toggle">
-      <post-card class="test" ng-repeat ="user in users">
+     <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
+
+    <div flex wrap layout horizontal class="container" ng-hide="toggle">
+      <div flex ng-repeat="user in users">
+      <post-card class="test">
         <img width="70" height="70" src="/assets/images/avatar.jpg">
         <h2> {{user.local.user}} </h2>
       </post-card>
+      </div>
 
+      <div flex>
       <post-card class="test">
           <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
           <h2> New user </h2>
@@ -120,18 +130,16 @@ text-transform: uppercase;
               Password:  <input type="text" ng-model="password"></label><br>
               <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
           </div>
-        </div>
-
       </post-card>
+      </div>
    </div>
 
   </div>
 
-<script src="/bower_components/angular/angular.js"></script>
 <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="/assets/angular-mongolab.js"></script>
 <script src="/app/portada/portada.controller.js"></script>
 
-
+</core-header-panel>
 </body>
 </html>

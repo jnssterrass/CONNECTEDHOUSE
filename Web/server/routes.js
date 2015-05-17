@@ -185,7 +185,8 @@ app.post('/newtask', function(req, res){
 
     var tasks = new Tasks({
       device_id: req.body.device_id,
-      action   : req.body.action
+      action   : req.body.action,
+      date     : req.body.date
 
     });
 
