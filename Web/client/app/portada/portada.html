@@ -91,6 +91,12 @@ text-transform: uppercase;
               <p> Status: {{statu_info.dsc}}</p>
           </div>
 
+          <p> Scheduled Tasks: </p>
+
+          <ul ng-repeat="task in tasks | filter:{'device_id':device._id}">
+            <li ng-repeat="action_info in actions_info | filter: {'action_id': task.action}"> {{action_info.dsc}} at {{task.date}} [x] </li>
+          </ul>
+
 
           <div ng-click="showactions=!showactions">
               <div ng-show="showactions">- Actions</div>

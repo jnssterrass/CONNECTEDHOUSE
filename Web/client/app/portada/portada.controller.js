@@ -22,7 +22,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
 
       $scope.mytime = new Date();
       $scope.hstep = 1;
-      $scope.mstep = 5;
+      $scope.mstep = 1;
       $scope.toggle = true;
       //$http.get('http://localhost:9000/findAlldevices').
       $http.get('http://localhost:9000/findAlldevices').
@@ -38,6 +38,15 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });
+
+      $http.get('http://localhost:9000/tasks').
+        success(function(data, status, headers, config) {
+          $scope.tasks = data;
+      }).error(function(data, status, headers, config) {
+          alert('Error!');
+      });
+
+
 
       Devices.all().then(function(devices){
         $scope.devices_info = devices;
@@ -68,9 +77,8 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
 */
 
       $scope.newtask = function(deviceid,action){
-        var time = $scope.mytime;
-
-
+        var time = $scope.mytime.getHours() + ":" + $scope.mytime.getMinutes();
+        alert(time);
         $http.post('http://localhost:9000/newtask',
             {device_id: deviceid,action : action, date:time}
         ).success(function(data, status, headers, config) {
@@ -79,13 +87,6 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
           alert('Error!');
         });
       }
-
-      $scope.update = function() {
-          var d = new Date();
-          d.setHours( 14 );
-          d.setMinutes( 0 );
-          $scope.mytime = d;
-        };
 
       $scope.newname = function(deviceid,devicename,device_id,address,status){
 
