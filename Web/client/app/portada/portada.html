@@ -16,6 +16,7 @@
 <link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
 
 <link rel="import" href="/app/portada/post-card.html">
+<link rel="import" href="/app/portada/post-card-users.html">
 
 <style>
 html,body {
@@ -130,14 +131,16 @@ text-transform: uppercase;
 
     <div flex wrap layout horizontal class="container" ng-hide="toggle">
       <div flex ng-repeat="user in users">
-      <post-card class="test">
+      <post-card-users class="test">
         <img width="70" height="70" src="/assets/images/avatar.jpg">
         <h2> {{user.local.user}} </h2>
-      </post-card>
+      </post-card-users>
       </div>
 
+      <br><br><br>
+
       <div flex>
-      <post-card class="test">
+      <post-card-users class="test">
           <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
           <h2> New user </h2>
           <div ng-show="showsign">
@@ -145,7 +148,7 @@ text-transform: uppercase;
               Password:  <input type="text" ng-model="password"></label><br>
               <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
           </div>
-      </post-card>
+      </post-card-users>
       </div>
    </div>
 
