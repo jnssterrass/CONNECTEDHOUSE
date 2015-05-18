@@ -217,14 +217,14 @@ console.log(app.get('appPath'));
 
     app.get('/', function(req, res) {
 
-      res.sendFile(config.root+'/client/app/login/login.html');
+      res.sendfile(config.root+'/client/app/login/login.html');
     });
 
 
     // Portada screen
 
     app.get('/portada', isLoggedIn, function(req, res) {
-       res.sendFile(config.root+ '/client/app/portada/portada.html', {
+       res.sendfile(config.root+ '/client/app/portada/portada.html', {
            user : req.user
        });
     });

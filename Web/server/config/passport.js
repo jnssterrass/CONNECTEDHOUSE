@@ -2,7 +2,7 @@
 var LocalStrategy    = require('passport-local').Strategy;
 
 // load up the user model
-var User       = require('../models/users');
+var User       = require('../app/models/user');
 
 // load the auth variables
 var configAuth = require('./auth'); // use this one for testing
@@ -40,7 +40,7 @@ module.exports = function(passport) {
             user = user.toLowerCase();
 
         process.nextTick(function() {
-            User.findOne({ 'user' :  user }, function(err, user) {
+            User.findOne({ 'local.user' :  user }, function(err, user) {
                 if (err)
                     return done(err);
 
@@ -72,15 +72,9 @@ module.exports = function(passport) {
 
         // asynchronous
         process.nextTick(function() {
-        console.log(user);
             // if the user is not already logged in:
-	 var newUser            = new User();
-
-                        newUser.user     = user;
-                        newUser.password = newUser.generateHash(password);
-       
-                User.findOne({ 'user' :  user }, function(err, user) {
-		    console.log(user);
+            if (!req.user) {
+                User.findOne({ 'local.user' :  user }, function(err, user) {
                     // if there are any errors, return the error
                     if (err)
                         return done(err);
@@ -91,7 +85,10 @@ module.exports = function(passport) {
                     } else {
 
                         // create the user
-                       
+                        var newUser            = new User();
+
+                        newUser.local.user     = user;
+                        newUser.local.password = newUser.generateHash(password);
 
                         newUser.save(function(err) {
                             if (err)
@@ -103,7 +100,32 @@ module.exports = function(passport) {
 
                 });
             // if the user is logged in but has no local account...
-            
+            } else if ( !req.user.local.user ) {
+                // ...presumably they're trying to connect a local account
+                // BUT let's check if the user used to connect a local account is being used by another user
+                User.findOne({ 'local.user' :  user }, function(err, user) {
+                    if (err)
+                        return done(err);
+
+                    if (user) {
+                        return done(null, false, req.flash('loginMessage', 'That user is already taken.'));
+                        // Using 'loginMessage instead of signupMessage because it's used by /connect/local'
+                    } else {
+                        var user = req.user;
+                        user.local.user = user;
+                        user.local.password = user.generateHash(password);
+                        user.save(function (err) {
+                            if (err)
+                                return done(err);
+
+                            return done(null,user);
+                        });
+                    }
+                });
+            } else {
+                // user is logged in and already has a local account. Ignore signup. (You should log out before trying to create a new account, user!)
+                return done(null, req.user);
+            }
 
         });
 
