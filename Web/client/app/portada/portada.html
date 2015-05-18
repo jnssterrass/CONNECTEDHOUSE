@@ -68,7 +68,7 @@ text-transform: uppercase;
   <core-toolbar>
       <paper-tabs id="tabs" selected="all" self-end>
           <paper-tab name="Devices" ng-click="toggle = true"> Devices </paper-tab>
-          <paper-tab name="Config"  ng-click="toggle = false"> Config </paper-tab>
+          <paper-tab name="Config"  ng-click="toggle = false"> Users </paper-tab>
       </paper-tabs>
   </core-toolbar>
 
@@ -76,7 +76,7 @@ text-transform: uppercase;
   <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
   <div flex wrap layout horizontal class="container" ng-show="toggle"  ng-repeat ="device in devices">
       <post-card class="test">
-        <img width="70" height="70" src="/assets/images/{{device.device_id}}.png">
+        <img width="70" height="70" src="/assets/images/{{device.device_id}}.jpg">
           <h2 ng-hide="showme">{{device.name}}</h2>
           <h2><div ng-show="showme">
             <label>Custom name: <input type="text" ng-model="name"></label><br>
