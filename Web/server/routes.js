@@ -103,20 +103,6 @@ app.put('/changename:id', function(req, res){
     console.log('PUT');
     console.log(req.body);
 
-
-    /*
-
-    $http.get('http://ajax.googleapis.com/ajax/services/search/images?v=1.0&q=perro').
-      success(function(data, status, headers, config) {
-        $scope.photos = data;
-    }).error(function(data, status, headers, config) {
-        alert('Error!');
-    });
-    alert($scope.photos);
-
-    */
-
-
     Devices.findById(req.params.id, function(err, devices) {
       devices.name     = req.body.name;
       devices.name     = req.body.name;
@@ -137,21 +123,6 @@ app.put('/changename:id', function(req, res){
    });
 });
 
-
-app.delete('/deletetask:id', function(req,res){
-  console.log('DELETE');
-  console.log(req.body);
-
-  Devices.findById(req.params.id, function(err, devices) {
-    		devices.remove(function(err) {
-    			if(!err) {
-    				console.log('Removed task from system');
-    			} else {
-    				console.log('ERROR: ' + err);
-    			}
-    		});
-    });
-});
 
 //===== Users ====== //
 app.get('/findAllUsers', function(req, res) {
@@ -200,6 +171,20 @@ app.post('/newtask', function(req, res){
     });
     res.send(tasks);
 });
+
+app.delete('/deletetask:id', function(req, res) {
+    Tasks.findById(req.params.id, function(err, tasks) {
+      tasks.remove(function(err) {
+  			if(!err) {
+  				console.log('Removed');
+  			} else {
+  				console.log('ERROR: ' + err);
+  			}
+  		})
+  	});
+});
+
+
 
 //===== END API REST ====== //
 

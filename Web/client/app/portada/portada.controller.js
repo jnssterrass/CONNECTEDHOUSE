@@ -104,6 +104,20 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
         });
       }
 
+      $scope.deletetask = function(task_id){
+        var path = 'http://localhost:9000/deletetask' + task_id;
+        $http.delete(path
+        ).success(function(data, status, headers, config) {
+
+        }).error(function(data, status, headers, config) {
+            alert('Error!');
+          });
+      }
+
+
+
+
+
       $scope.newuser = function(user, password) {
         $http.post('http://localhost:9000/signup',
             {user: user,password : password}

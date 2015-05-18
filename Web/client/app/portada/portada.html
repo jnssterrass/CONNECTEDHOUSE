@@ -94,8 +94,11 @@ text-transform: uppercase;
           <p> Scheduled Tasks: </p>
 
           <ul ng-repeat="task in tasks | filter:{'device_id':device._id}">
-            <li ng-repeat="action_info in actions_info | filter: {'action_id': task.action}"> {{action_info.dsc}} at {{task.date}} [x] </li>
+            <li ng-repeat="action_info in actions_info | filter: {'action_id': task.action}"> {{action_info.dsc}} at {{task.date}}
+              <button type="submit" class="btn btn-default" ng-click="deletetask(task._id)">Remove</button>
+            </li>
           </ul>
+
 
 
           <div ng-click="showactions=!showactions">
