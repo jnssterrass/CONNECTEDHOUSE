@@ -92,7 +92,6 @@ text-transform: uppercase;
           </div>
 
           <p> Scheduled Tasks: </p>
-
           <ul ng-repeat="task in tasks | filter:{'device_id':device._id}">
             <li ng-repeat="action_info in actions_info | filter: {'action_id': task.action}"> {{action_info.dsc}} at {{task.date}}
               <button type="submit" class="btn btn-default" ng-click="deletetask(task._id)">Remove</button>
@@ -107,11 +106,18 @@ text-transform: uppercase;
        </div>
 
         <div ng-show="showactions">
-            <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker>
+            <!-- <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker> -->
+            Would schedule the task ? keep empty data to execute now.
+            <input type="number" name="input" ng-model="hour"  min="0" max="24" required> H
+            <input type="number" name="input" ng-model="minute"min="0" max="59" required> M
           <div ng-repeat="device_info in devices_info | filter:{ 'device_id':device.device_id} ">
               <div ng-repeat="action in device_info.actions">
                 <div ng-repeat="action_info in actions_info | filter: {'action_id': action}">
-                  <button type="submit" class="btn btn-default" ng-click="newtask(device._id, action_info.action_id)">{{action_info.dsc}}</button>
+
+                  <button class="action"type="submit" class="btn btn-default" ng-click="newtask(device._id, action_info.action_id,hour,minute)">
+                      {{action_info.dsc}}
+                  </button>
+
                 </div>
               </div>
           </div>

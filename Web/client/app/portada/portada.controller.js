@@ -76,9 +76,14 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
           alert($scope.photos);
 */
 
-      $scope.newtask = function(deviceid,action){
-        var time = $scope.mytime.getHours() + ":" + $scope.mytime.getMinutes();
-        alert(time);
+      $scope.newtask = function(deviceid,action,hour,minute){
+        var time = hour + ":" + minute;
+        if(time == "undefined:undefined") {
+          time = "NOW";
+        }
+
+
+
         $http.post('http://localhost:9000/newtask',
             {device_id: deviceid,action : action, date:time}
         ).success(function(data, status, headers, config) {
@@ -113,9 +118,6 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
             alert('Error!');
           });
       }
-
-
-
 
 
       $scope.newuser = function(user, password) {
