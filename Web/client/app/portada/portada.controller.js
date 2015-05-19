@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp','ngResource', 'ui.bootstrap']);
+var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp','ngResource', 'ui.bootstrap', 'ngRoute']);
 
 
 app.constant('MONGOLAB_CONFIG',{API_KEY:'2UkXrp3c_Kk9rJgB3PBfNL1zH2lg_xSd', DB_NAME:'ch-repo'});
@@ -18,7 +18,7 @@ app.factory('Status', function ($mongolabResourceHttp) {
 });
 
 
-app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Actions, Status) {
+app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$location ,Devices, Actions, Status) {
 
       $scope.mytime = new Date();
       $scope.hstep = 1;
@@ -117,6 +117,11 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
         }).error(function(data, status, headers, config) {
             alert('Error!');
           });
+        $window.location.reload();
+       // $location.path('http://localhost:9000/portada');
+        //$route.reload();
+	
+
       }
 
 
