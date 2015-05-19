@@ -10,14 +10,28 @@ module.exports = function(app, passport, mongoose) {
 
 //===== API REST ====== //
 
-var devices   = require('./models/devices.js');
-var users     = require('./models/users.js');
-var pooltask  = require('./models/pooltask.js');
+var Devices   = require('./models/devices.js');
+var Users     = require('./models/users.js');
+var Tasks     = require('./models/tasks.js');
+var Signin    = require('./app/models/user.js');
+var http      = require('http');
 
+//===== Users ====== //
+
+app.get('/findAllUsers', function(req, res) {
+  	Users.find(function(err, users) {
+  		if(!err) {
+        console.log('GET /users')
+  			res.send(users);
+  		} else {
+  			console.log('ERROR: ' + err);
+  		}
+  	});
+});
 
 //===== Devices ====== //
 app.get('/findAlldevices', function(req, res) {
-  	devices.find(function(err, devices) {
+  	Devices.find(function(err, devices) {
   		if(!err) {
         console.log('GET /devices')
   			res.send(devices);
@@ -28,15 +42,87 @@ app.get('/findAlldevices', function(req, res) {
 });
 
 app.get('/finddevice:id', function(req, res) {
-  	devices.findById(req.param.id, function(err, devices) {
+  	devices.findById(req.param.id, function(err, Devices) {
   		if(!err) {
         console.log('GET /devices')
-  			res.send(devices);
+  			res.send(Devices);
   		} else {
   			console.log('ERROR: ' + err);
   		}
   	});
 });
+
+app.post('/newdevice', function(req, res){
+    console.log('POST');
+    console.log(req.body);
+
+    var devices = new Devices({
+      name     : req.body.name,
+      device_id: req.body.device_id,
+      address  : req.body.address,
+      status   : req.body.status
+
+    });
+
+    devices.save(function(err) {
+      if(!err){
+        console.log('New device on da house');
+      }
+      else {
+        console.log('ERROR:' + err);
+      }
+    });
+    res.send(devices);
+});
+
+
+app.put('/changestatus:id', function(req, res){
+    console.log('PUT');
+    console.log(req.body);
+
+    Devices.findById(req.params.id, function(err, devices) {
+      devices.name     = req.body.name;
+      devices.device_id= req.body.device_id;
+      devices.address  = req.body.address;
+      devices.status   = req.body.status;
+
+      devices.save(function(err) {
+        if(!err){
+          console.log('Status changed');
+        }
+        else {
+          console.log('ERROR:' + err);
+        }
+        res.send(devices);
+      });
+   });
+});
+
+
+app.put('/changename:id', function(req, res){
+    console.log('PUT');
+    console.log(req.body);
+
+    Devices.findById(req.params.id, function(err, devices) {
+      devices.name     = req.body.name;
+      devices.name     = req.body.name;
+      devices.device_id= req.body.device_id;
+      devices.address  = req.body.address;
+      devices.status   = req.body.status;
+
+
+      devices.save(function(err) {
+        if(!err){
+          console.log('Name changed');
+        }
+        else {
+          console.log('ERROR:' + err);
+        }
+        res.send(devices);
+      });
+   });
+});
+
 
 //===== Users ====== //
 app.get('/findAllUsers', function(req, res) {
@@ -51,12 +137,12 @@ app.get('/findAllUsers', function(req, res) {
 });
 
 
-//===== Pool Task ====== //
-app.get('/pooltask', function(req, res) {
-  pooltask.find(function(err, pooltask) {
+//=====  Task ====== //
+app.get('/tasks', function(req, res) {
+  Tasks.find(function(err, tasks) {
   		if(!err) {
-        console.log('GET /pooltask')
-  			res.send(pooltask);
+        console.log('GET /tasks')
+  			res.send(tasks);
   		} else {
   			console.log('ERROR: ' + err);
   		}
@@ -68,26 +154,39 @@ app.post('/newtask', function(req, res){
     console.log('POST');
     console.log(req.body);
 
-
-
-    var pooltask = new Pooltask({
+    var tasks = new Tasks({
       device_id: req.body.device_id,
-      action   : req.body.action
+      action   : req.body.action,
+      date     : req.body.date
+
     });
 
-    pooltask.save(function(err) {
+    tasks.save(function(err) {
       if(!err){
-        console.log('New action on the pool');
+        console.log('New action on the queue');
       }
       else {
         console.log('ERROR:' + err);
       }
     });
-    res.send(pooltask);
+    res.send(tasks);
 });
 
-//===== END API REST ====== //
+app.delete('/deletetask:id', function(req, res) {
+    Tasks.findById(req.params.id, function(err, tasks) {
+      tasks.remove(function(err) {
+  			if(!err) {
+  				console.log('Removed');
+  			} else {
+  				console.log('ERROR: ' + err);
+  			}
+  		})
+  	});
+});
 
+
+
+//===== END API REST ====== //
 
 console.log(app.get('appPath'));
 
@@ -153,6 +252,7 @@ console.log(app.get('appPath'));
       // SIGNUP =================================
       // show the signup form
       app.get('/signup', function(req, res) {
+
          res.sendFile(config.root + '/client/app/login/signup.html', { message: req.flash('signupMessage') });
      });
 

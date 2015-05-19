@@ -4,13 +4,24 @@
 <title>Conected-House</title>
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
+<script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router-min.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-route/angular-route.min.js"></script>
+
+<script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/bower_components/webcomponentsjs/webcomponents.js"> </script>
 <link rel="import" href="/bower_components/font-roboto/roboto.html">
 <link rel="import" href="/bower_components/core-header-panel/core-header-panel.html">
 <link rel="import" href="/bower_components/core-toolbar/core-toolbar.html">
 <link rel="import" href="/bower_components/paper-tabs/paper-tabs.html">
+<link rel="import" href="/bower_components/core-media-query/core-media-query.html">
+
+<link href="/bower_components/bootstrap/dist/css/bootstrap.css" rel="stylesheet">
+
 <link rel="import" href="/app/portada/post-card.html">
-<link rel="import" href="/app/portada/paper-action-dialog.html">
+<link rel="import" href="/app/portada/post-card-users.html">
 
 <style>
 html,body {
@@ -38,56 +49,120 @@ user-select: none;
 text-transform: uppercase;
 }
 .container {
-  width: 80%;
-  margin: 50px 50px 50px 50px;
+  width: 100%;
 }
 @media (min-width: 481px) {
   #tabs {
   width: 200px;
   }
   .container {
-  width: 400px;
-  }
-  .test {
-  margin: 50px 50px 50px 50px;
+  width: 100%;
+
   }
 }
 </style>
-<link rel="stylesheet" href="/assets/css/bootstrap.css">
-<link rel="stylesheet" href="/assets/css/bootstrap-responsive.css">
-
 </head>
 
-<body>
-<core-header-panel>
-<core-toolbar>
-<paper-tabs id="tabs" selected="all" self-end>
-<paper-tab name="Gadgets">Gadgets</paper-tab>
-<paper-tab name="favorites">Users</paper-tab>
-</paper-tabs>
-</core-toolbar>
-<!-- main page content will go here -->
+<body fullbleed layout vertical>
+
+<core-header-panel flex>
+
+  <div  ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
+
+  <!--HEADER -->
+  <core-toolbar>
+      <paper-tabs id="tabs" selected="all" self-end>
+          <paper-tab name="Devices" ng-click="toggle = true"> Devices </paper-tab>
+          <paper-tab name="Config"  ng-click="toggle = false"> Users </paper-tab>
+      </paper-tabs>
+  </core-toolbar>
+
+  <!-- DEVICES -->
+  <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
+  <div flex wrap layout horizontal class="container" ng-show="toggle"  ng-repeat ="device in devices">
+      <post-card class="test">
+        <img width="70" height="70" src="/assets/images/{{device.device_id}}.jpg">
+          <h2 ng-hide="showme">{{device.name}}</h2>
+          <h2><div ng-show="showme">
+            <label>Custom name: <input type="text" ng-model="name"></label><br>
+            <small>IP address: {{device.address}}</small><br>
+            <div ng-click="showme=false">
+              <button type="submit" class="btn btn-default" ng-click="newname(device._id,name,device.device_id, device.address, device.status)">Save</button>
+            </div>
+            <button type="submit" class="btn btn-default" ng-click="showme=false">Cancel</button>
+            </div>  </h2>
+          <a href="" ng-hide="showme" ng-click="showme=true"> edit</a>
+
+          <div ng-repeat="statu_info in status_info | filter:{ 'id':device.status} ">
+              <p> Status: {{statu_info.dsc}}</p>
+          </div>
+
+          <p> Scheduled Tasks: </p>
+          <ul ng-repeat="task in tasks | filter:{'device_id':device._id}">
+            <li ng-repeat="action_info in actions_info | filter: {'action_id': task.action}"> {{action_info.dsc}} at {{task.date}}
+              <button type="submit" class="btn btn-default" ng-click="deletetask(task._id)" ng-click="reloadRoute()">Remove</button>
+            </li>
+          </ul>
 
 
-<div class="row">
-    <div ng-app="connectedHouseApp" ng-controller="PortadaCtrl">
-        <div class="col-md-4">
-          <post-card class="test" ng-repeat ="device in devices">
-            <img width="70" height="70" src="/assets/images/{{device}}.png">
-            <h2>{{device}}</h2>
-            <p> Estado: Abierta </p>
-            <p>Cerrado automatico a las 19:00h</p>
-            <button type="submit" class="btn btn-default">Actions</button>
-          </post-card>
+
+          <div ng-click="showactions=!showactions">
+              <div ng-show="showactions">- Actions</div>
+              <div ng-hide="showactions">+ Actions</div>
+       </div>
+
+        <div ng-show="showactions">
+            <!-- <timepicker ng-model="mytime" ng-change="changed()" hour-step="hstep" minute-step="mstep" show-meridian="ismeridian"></timepicker> -->
+            Would schedule the task ? keep empty data to execute now.
+            <input type="number" name="input" ng-model="hour"  min="0" max="24" required> H
+            <input type="number" name="input" ng-model="minute"min="0" max="59" required> M
+          <div ng-repeat="device_info in devices_info | filter:{ 'device_id':device.device_id} ">
+              <div ng-repeat="action in device_info.actions">
+                <div ng-repeat="action_info in actions_info | filter: {'action_id': action}">
+
+                  <button class="action"type="submit" class="btn btn-default" ng-click="newtask(device._id, action_info.action_id,hour,minute)">
+                      {{action_info.dsc}}
+                  </button>
+
+                </div>
+              </div>
+          </div>
         </div>
+      </post-card>
     </div>
-</div>
 
-<script src="/bower_components/angular/angular.js"></script>
-<script type="text/javascript" src="/bower_components/angular-route/angular-route.min.js"></script>
-<script type="text/javascript" src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    <!-- USERS -->
+     <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
+
+    <div flex wrap layout horizontal class="container" ng-hide="toggle">
+      <div flex ng-repeat="user in users">
+      <post-card-users class="test">
+        <img width="70" height="70" src="/assets/images/avatar.jpg">
+        <h2> {{user.local.user}} </h2>
+      </post-card-users>
+      </div>
+
+      <br><br><br>
+
+      <div flex>
+      <post-card-users class="test">
+          <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
+          <h2> New user </h2>
+          <div ng-show="showsign">
+              User:      <input type="text" ng-model="user"></label><br>
+              Password:  <input type="text" ng-model="password"></label><br>
+              <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
+          </div>
+      </post-card-users>
+      </div>
+   </div>
+
+  </div>
+
+<script src="/bower_components/angular-resource/angular-resource.min.js"></script>
+<script src="/assets/angular-mongolab.js"></script>
 <script src="/app/portada/portada.controller.js"></script>
 
-
+</core-header-panel>
 </body>
 </html>
