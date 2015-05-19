@@ -136,27 +136,16 @@ text-transform: uppercase;
      <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
 
     <div flex wrap layout horizontal class="container" ng-hide="toggle">
-<<<<<<< HEAD
       <div flex layout auto-vertical ng-repeat="user in users"> 
-      <post-card-users>
-=======
-      <div ng-repeat="user in users">
-      <post-card-users class="test">
->>>>>>> 994f8a6933d9e4e8336faea54bb6b2257e343341
-        <img width="70" height="70" src="/assets/images/avatar.jpg">
-        <h2> {{user.local.user}} </h2>
-      </post-card-users>
+        <post-card-users>
+          <img width="70" height="70" src="/assets/images/avatar.jpg">
+          <h2> {{user.local.user}} </h2>
+        </post-card-users>
       </div>
 
       <br><br><br>
-
-<<<<<<< HEAD
       <div flex layout auto-vertical>
-      <post-card-users >
-=======
-      <div>
-      <post-card-users class="test">
->>>>>>> 994f8a6933d9e4e8336faea54bb6b2257e343341
+        <post-card-users>
           <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
           <h2> New user </h2>
           <div ng-show="showsign">
@@ -164,51 +153,9 @@ text-transform: uppercase;
               Password:  <input type="password" ng-model="password"></label><br>
               <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
           </div>
-      </post-card-users>
+        </post-card-users>
       </div>
-
-<div flex layout auto-vertical>
-      <post-card-users >
-          <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
-          <h2> New user </h2>
-          <div ng-show="showsign">
-              User:      <input type="text" ng-model="user"></label><br>
-              Password:  <input type="password" ng-model="password"></label><br>
-              <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
-          </div>
-      </post-card-users>
-      </div>
-
-
-<div flex layout auto-vertical>
-      <post-card-users >
-          <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
-          <h2> New user </h2>
-          <div ng-show="showsign">
-              User:      <input type="text" ng-model="user"></label><br>
-              Password:  <input type="password" ng-model="password"></label><br>
-              <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
-          </div>
-      </post-card-users>
-      </div>
-
-
-<div flex layout auto-vertical>
-      <post-card-users >
-          <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
-          <h2> New user </h2>
-          <div ng-show="showsign">
-              User:      <input type="text" ng-model="user"></label><br>
-              Password:  <input type="password" ng-model="password"></label><br>
-              <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
-          </div>
-      </post-card-users>
-      </div>
-
    </div>
-
-  </div>
-
 <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="/assets/angular-mongolab.js"></script>
 <script src="/app/portada/portada.controller.js"></script>
