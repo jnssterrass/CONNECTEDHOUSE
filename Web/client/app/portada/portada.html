@@ -135,7 +135,7 @@ text-transform: uppercase;
      <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
 
     <div flex wrap layout horizontal class="container" ng-hide="toggle">
-      <div flex ng-repeat="user in users">
+      <div ng-repeat="user in users">
       <post-card-users class="test">
         <img width="70" height="70" src="/assets/images/avatar.jpg">
         <h2> {{user.local.user}} </h2>
@@ -144,7 +144,7 @@ text-transform: uppercase;
 
       <br><br><br>
 
-      <div flex>
+      <div>
       <post-card-users class="test">
           <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
           <h2> New user </h2>
