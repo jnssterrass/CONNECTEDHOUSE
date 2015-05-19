@@ -42,10 +42,10 @@ app.get('/findAlldevices', function(req, res) {
 });
 
 app.get('/finddevice:id', function(req, res) {
-  	devices.findById(req.param.id, function(err, Devices) {
+  	Devices.findById(req.param.id, function(err, devices) {
   		if(!err) {
         console.log('GET /devices')
-  			res.send(Devices);
+  			res.send(devices);
   		} else {
   			console.log('ERROR: ' + err);
   		}
