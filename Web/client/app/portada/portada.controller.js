@@ -25,21 +25,21 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
       $scope.mstep = 1;
       $scope.toggle = true;
       //$http.get('http://localhost:9000/findAlldevices').
-      $http.get('http://localhost:9000/findAlldevices').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/findAlldevices').
         success(function(data, status, headers, config) {
           $scope.devices = data;
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });
 
-      $http.get('http://localhost:9000/findAllUsers').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/findAllUsers').
         success(function(data, status, headers, config) {
           $scope.users = data;
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });
 
-      $http.get('http://localhost:9000/tasks').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/tasks').
         success(function(data, status, headers, config) {
           $scope.tasks = data;
       }).error(function(data, status, headers, config) {
@@ -84,7 +84,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
 
 
 
-        $http.post('http://localhost:9000/newtask',
+        $http.post('http://connectedhouseweb.no-ip.org:9000/newtask',
             {device_id: deviceid,action : action, date:time}
         ).success(function(data, status, headers, config) {
 
@@ -96,7 +96,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
 
       $scope.newname = function(deviceid,devicename,device_id,address,status){
 
-        var path = 'http://localhost:9000/changestatus' + deviceid;
+        var path = 'http://connectedhouseweb.no-ip.org:9000/changestatus' + deviceid;
         $http.put(path,
            { name: devicename,
              device_id : device_id,
@@ -112,7 +112,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
       }
 
       $scope.deletetask = function(task_id){
-        var path = 'http://localhost:9000/deletetask' + task_id;
+        var path = 'http://connectedhouseweb.no-ip.org:9000/deletetask' + task_id;
         $http.delete(path
         ).success(function(data, status, headers, config) {
 
@@ -128,7 +128,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
       
 
       $scope.newuser = function(user, password) {
-        $http.post('http://localhost:9000/signup',
+        $http.post('http://connectedhouseweb.no-ip.org:9000/signup',
             {user: user,password : password}
         ).success(function(data, status, headers, config) {
 
