@@ -91,6 +91,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
         }).error(function(data, status, headers, config) {
           alert('Error!');
         });
+	$window.location.reload();
       }
 
       $scope.newname = function(deviceid,devicename,device_id,address,status){
@@ -107,6 +108,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
         }).error(function(data, status, headers, config) {
           alert('Error!');
         });
+	$window.location.reload();
       }
 
       $scope.deletetask = function(task_id){
@@ -117,13 +119,13 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
         }).error(function(data, status, headers, config) {
             alert('Error!');
           });
-        $window.location.reload();
+       $window.location.reload();
        // $location.path('http://localhost:9000/portada');
         //$route.reload();
 	
 
       }
-
+      
 
       $scope.newuser = function(user, password) {
         $http.post('http://localhost:9000/signup',
@@ -133,6 +135,7 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$
         }).error(function(data, status, headers, config) {
           alert('Error!');
         });
+	$window.location.reload();
       }
 
 });
