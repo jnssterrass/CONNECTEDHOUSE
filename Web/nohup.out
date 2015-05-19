@@ -1,0 +1,526 @@
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+Cleaning .tmp...[32mOK[39m
+
+[4mRunning "env:all" (env) task[24m
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(4 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+    
+    [4mRunning "sass:server" (sass) task[24m
+    
+    [32mDone, without errors.[39m
+    
+    
+    Execution Time (2015-05-07 14:38:21 UTC)
+    loading tasks  185ms  ▇▇▇ 5%
+    sass:server     3.9s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 95%
+    Total 4.1s
+    
+[4mRunning "injector:scripts" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mjs[39m files [90m(9 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(4 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:css" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+[32m>> [39mNothing changed
+
+[4mRunning "wiredep:target" (wiredep) task[24m
+
+core-component-page was not injected in your file.
+Please go take a look in "/root/CONNECTEDHOUSE/Web/client/bower_components/core-component-page" for the file you need, then manually include it in your file.
+
+[4mRunning "autoprefixer:dist" (autoprefixer) task[24m
+File .tmp/app/app.css created.
+File .tmp/app/app.css.map created (source map).
+
+[4mRunning "express:dev" (express) task[24m
+[36mStarting [39mbackground Express server
+debugger listening on port 5858
+{ [Error: Cannot find module '../build/Release/bson'] code: 'MODULE_NOT_FOUND' }
+
+[4mRunning "wait" task[24m
+[32m>> [39mWaiting for server reload...
+js-bson: Failed to load c++ bson extension, using pure JS version
+client
+Express server listening on 80, in development mode
+Done waiting!
+
+[4mRunning "open:server" (open) task[24m
+[90mGET /login [36m304 [90m22ms[0m
+[90mGET /login [36m304 [90m22ms[0m
+[33mWarning: Command failed: xdg-open: no method available for opening 'http://localhost:80'
+ Use --force to continue.[39m
+
+[31mAborted due to warnings.[39m
+
+
+Execution Time (2015-05-07 14:38:20 UTC)
+loading tasks      160ms  ▇ 2%
+concurrent:server   4.5s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 55%
+wiredep:target     465ms  ▇▇▇ 6%
+autoprefixer:dist  850ms  ▇▇▇▇▇ 10%
+express:dev        452ms  ▇▇▇ 5%
+wait                1.5s  ▇▇▇▇▇▇▇▇ 18%
+open:server        133ms  ▇ 2%
+Total 8.3s
+
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+Cleaning .tmp...[32mOK[39m
+
+[4mRunning "env:all" (env) task[24m
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(4 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+    
+    [4mRunning "sass:server" (sass) task[24m
+    
+    [32mDone, without errors.[39m
+    
+    
+    Execution Time (2015-05-07 14:39:36 UTC)
+    loading tasks  163ms  ▇▇▇ 4%
+    sass:server     3.6s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 96%
+    Total 3.8s
+    
+[4mRunning "injector:scripts" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mjs[39m files [90m(9 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(4 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:css" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+[32m>> [39mNothing changed
+
+[4mRunning "wiredep:target" (wiredep) task[24m
+
+core-component-page was not injected in your file.
+Please go take a look in "/root/CONNECTEDHOUSE/Web/client/bower_components/core-component-page" for the file you need, then manually include it in your file.
+
+[4mRunning "autoprefixer:dist" (autoprefixer) task[24m
+File .tmp/app/app.css created.
+File .tmp/app/app.css.map created (source map).
+
+[4mRunning "express:dev" (express) task[24m
+[36mStarting [39mbackground Express server
+debugger listening on port 5858
+{ [Error: Cannot find module '../build/Release/bson'] code: 'MODULE_NOT_FOUND' }
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+[4mRunning "wait" task[24m
+[32m>> [39mWaiting for server reload...
+client
+Express server listening on 80, in development mode
+Done waiting!
+
+[4mRunning "open:server" (open) task[24m
+[33mWarning: Command failed: xdg-open: no method available for opening 'http://localhost:80'
+ [4mUsed --force, continuing.[24m[39m
+
+[4mRunning "watch" task[24m
+Waiting...
+[90mGET /login [36m304 [90m11ms[0m
+[90mGET /login [36m304 [90m12ms[0m
+[90mGET /favicon.ico [36m304 [90m10ms[0m
+[90mGET /login [36m304 [90m3ms[0m
+[90mGET /login [36m304 [90m4ms[0m
+[90mGET /favicon.ico [36m304 [90m3ms[0m
+
+
+Execution Time (2015-05-07 14:39:36 UTC)
+concurrent:server   4.2s  ▇▇▇▇▇▇ 12%
+wiredep:target     437ms  ▇ 1%
+autoprefixer:dist  824ms  ▇▇ 2%
+express:dev        444ms  ▇ 1%
+wait                1.5s  ▇▇ 4%
+watch              26.8s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 77%
+Total 34.8s
+
+[31mStopping[39m Express server
+[4mRunning "serve" task[24m
+
+[4mRunning "clean:server" (clean) task[24m
+Cleaning .tmp...[32mOK[39m
+
+[4mRunning "env:all" (env) task[24m
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(4 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "concurrent:server" (concurrent) task[24m
+    
+    [4mRunning "sass:server" (sass) task[24m
+    
+    [32mDone, without errors.[39m
+    
+    
+    Execution Time (2015-05-07 14:40:43 UTC)
+    loading tasks  186ms  ▇▇▇ 4%
+    sass:server       4s  ▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇▇ 96%
+    Total 4.2s
+    
+[4mRunning "injector:scripts" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mjs[39m files [90m(9 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:sass" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+Injecting [32mscss[39m files [90m(4 files)[39m
+[32m>> [39mNothing changed
+
+[4mRunning "injector:css" (injector) task[24m
+[90mMissing option `template`, using `dest` as template instead[39m
+[32m>> [39mNothing changed
+
+[4mRunning "wiredep:target" (wiredep) task[24m
+
+core-component-page was not injected in your file.
+Please go take a look in "/root/CONNECTEDHOUSE/Web/client/bower_components/core-component-page" for the file you need, then manually include it in your file.
+
+[4mRunning "autoprefixer:dist" (autoprefixer) task[24m
+File .tmp/app/app.css created.
+File .tmp/app/app.css.map created (source map).
+
+[4mRunning "express:dev" (express) task[24m
+[36mStarting [39mbackground Express server
+debugger listening on port 5858
+{ [Error: Cannot find module '../build/Release/bson'] code: 'MODULE_NOT_FOUND' }
+js-bson: Failed to load c++ bson extension, using pure JS version
+
+[4mRunning "wait" task[24m
+[32m>> [39mWaiting for server reload...
+client
+Express server listening on 80, in development mode
+[90mGET /login [36m304 [90m11ms[0m
+[90mGET /login [36m304 [90m11ms[0m
+Done waiting!
+
+[4mRunning "open:server" (open) task[24m
+[33mWarning: Command failed: xdg-open: no method available for opening 'http://localhost:80'
+ [4mUsed --force, continuing.[24m[39m
+
+[4mRunning "watch" task[24m
+Waiting...
+[90mGET /favicon.ico [36m304 [90m9ms[0m
+[90mGET /login [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m3ms[0m
+[90mGET /favicon.ico [36m304 [90m4ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m2ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m3ms[0m
+[90mGET /favicon.ico [36m304 [90m4ms[0m
+[90mGET /login [32m200 [90m16ms[0m
+[90mGET /login [32m200 [90m17ms[0m
+[90mGET /favicon.ico [32m200 [90m7ms[0m
+[90mGET /favicon.ico [36m304 [90m6ms[0m
+[90mGET /login [36m304 [90m3ms[0m
+[90mGET /login [36m304 [90m4ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m4ms[0m
+[90mGET /favicon.ico [36m304 [90m10ms[0m
+[90mGET / [32m200 [90m42ms[0m
+[90mGET /app/app.css [32m200 [90m22ms[0m
+[90mGET /bower_components/jquery/dist/jquery.js [33m404 [90m25ms[0m
+[90mGET /bower_components/jquery/dist/jquery.js [33m404 [90m26ms[0m
+[90mGET /bower_components/angular-resource/angular-resource.js [32m200 [90m23ms[0m
+[90mGET /bower_components/angular-sanitize/angular-sanitize.js [32m200 [90m26ms[0m
+[90mGET /bower_components/angular-cookies/angular-cookies.js [32m200 [90m34ms[0m
+[90mGET /bower_components/angular-bootstrap/ui-bootstrap-tpls.js [32m200 [90m24ms[0m
+[90mGET /bower_components/lodash/dist/lodash.compat.js [33m404 [90m12ms[0m
+[90mGET /bower_components/lodash/dist/lodash.compat.js [33m404 [90m12ms[0m
+[90mGET /bower_components/angular-socket-io/socket.js [32m200 [90m27ms[0m
+[90mGET /bower_components/angular-ui-router/release/angular-ui-router.js [32m200 [90m52ms[0m
+[90mGET /bower_components/webcomponentsjs/webcomponents.js [32m200 [90m71ms[0m
+[90mGET /bower_components/angular/angular.js [32m200 [90m282ms[0m
+[90mGET /socket.io-client/socket.io.js [33m404 [90m3ms - 42b[0m
+[90mGET /socket.io-client/socket.io.js [33m404 [90m5ms - 42b[0m
+[90mGET /bower_components/polymer/polymer.js [32m200 [90m104ms[0m
+[90mGET /app/login/login.js [32m200 [90m3ms - 247b[0m
+[90mGET /app/login/login.controller.js [32m200 [90m8ms - 134b[0m
+[90mGET /app/app.js [32m200 [90m5ms - 326b[0m
+[90mGET /app/main/main.controller.js [32m200 [90m11ms[0m
+[90mGET /app/main/main.js [32m200 [90m7ms - 238b[0m
+[90mGET /app/portada/portada.controller.js [32m200 [90m2ms - 769b[0m
+[90mGET /app/portada/portada.js [32m200 [90m5ms - 257b[0m
+[90mGET /components/modal/modal.service.js [32m200 [90m9ms[0m
+[90mGET /components/navbar/navbar.controller.js [32m200 [90m4ms - 306b[0m
+[90mGET /components/socket/socket.service.js [32m200 [90m5ms[0m
+[90mGET /bower_components/font-roboto/roboto.html [32m200 [90m4ms - 664b[0m
+[90mGET /bower_components/core-header-panel/core-header-panel.html [32m200 [90m10ms[0m
+[90mGET /bower_components/core-toolbar/core-toolbar.html [32m200 [90m4ms[0m
+[90mGET /bower_components/paper-tabs/paper-tabs.html [32m200 [90m7ms[0m
+[90mGET /app/polymer/post-card.html [33m404 [90m7ms[0m
+[90mGET /app/polymer/post-card.html [33m404 [90m7ms[0m
+[90mGET /bower_components/polymer/polymer.html [32m200 [90m3ms - 580b[0m
+[90mGET /bower_components/paper-icon-button/paper-icon-button.html [32m200 [90m7ms[0m
+[90mGET /bower_components/core-selector/core-selector.html [32m200 [90m6ms[0m
+[90mGET /bower_components/core-resizable/core-resizable.html [32m200 [90m8ms[0m
+[90mGET /bower_components/paper-tabs/paper-tab.html [32m200 [90m11ms[0m
+[90mGET /bower_components/core-icon/core-icon.html [32m200 [90m7ms[0m
+[90mGET /bower_components/core-icons/core-icons.html [32m200 [90m15ms[0m
+[90mGET /bower_components/paper-button/paper-button-base.html [32m200 [90m7ms[0m
+[90mGET /bower_components/paper-ripple/paper-ripple.html [32m200 [90m12ms[0m
+[90mGET /bower_components/core-icon/core-icon.css [32m200 [90m3ms - 685b[0m
+[90mGET /bower_components/core-selection/core-selection.html [32m200 [90m6ms[0m
+[90mGET /bower_components/core-iconset/core-iconset.html [32m200 [90m4ms[0m
+[90mGET /bower_components/core-iconset-svg/core-iconset-svg.html [32m200 [90m12ms[0m
+[90mGET /bower_components/polymer/layout.html [32m200 [90m11ms[0m
+[90mGET /bower_components/core-meta/core-meta.html [32m200 [90m8ms[0m
+[90mGET /bower_components/core-focusable/core-focusable.html [32m200 [90m4ms - 135b[0m
+[90mGET /bower_components/core-header-panel/core-header-panel.css [32m200 [90m11ms[0m
+[90mGET /bower_components/core-toolbar/core-toolbar.css [32m200 [90m10ms[0m
+[90mGET /bower_components/core-focusable/polymer-mixin.js [32m200 [90m6ms - 899b[0m
+[90mGET /bower_components/core-focusable/core-focusable.js [32m200 [90m12ms[0m
+[90mGET /bower_components/paper-tabs/paper-tab.css [32m200 [90m10ms[0m
+[90mGET /bower_components/paper-tabs/paper-tabs.css [32m200 [90m10ms[0m
+[90mGET /favicon.ico [32m200 [90m6ms[0m
+[90mGET /login [32m200 [90m4ms[0m
+[90mGET /login [32m200 [90m5ms[0m
+[90mGET /favicon.ico [36m304 [90m3ms[0m
+[90mPOST /login [36m302 [90m32ms - 68b[0m
+[90mPOST /login [36m302 [90m32ms - 68b[0m
+[90mGET /login [32m200 [90m4ms[0m
+[90mGET /login [32m200 [90m4ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mGET / [32m200 [90m17ms - 3.43kb[0m
+[90mGET http://testp5.mielno.lubin.pl/testproxy.php [33m404 [90m3ms - 55b[0m
+[90mGET http://testp5.mielno.lubin.pl/testproxy.php [33m404 [90m6ms - 55b[0m
+[90mGET http://testp2.czar.bielawa.pl/testproxy.php [33m404 [90m1ms - 55b[0m
+[90mGET http://testp2.czar.bielawa.pl/testproxy.php [33m404 [90m2ms - 55b[0m
+[90mGET /phpMyAdmin/scripts/setup.php [33m404 [90m3ms - 41b[0m
+[90mGET /phpMyAdmin/scripts/setup.php [33m404 [90m5ms - 41b[0m
+[90mGET /pma/scripts/setup.php [33m404 [90m1ms - 34b[0m
+[90mGET /pma/scripts/setup.php [33m404 [90m1ms - 34b[0m
+[90mGET /myadmin/scripts/setup.php [33m404 [90m1ms - 38b[0m
+[90mGET /myadmin/scripts/setup.php [33m404 [90m1ms - 38b[0m
+[90mGET / [32m200 [90m662ms - 3.43kb[0m
+[90mGET / [32m200 [90m8ms - 3.43kb[0m
+[90mGET / [32m200 [90m28ms[0m
+[90mGET / [32m200 [90m11ms - 3.43kb[0m
+[90mGET / [32m200 [90m2ms - 3.43kb[0m
+[90mGET / [32m200 [90m4ms - 3.43kb[0m
+[90mGET / [32m200 [90m17ms[0m
+[90mGET / [32m200 [90m45ms - 3.43kb[0m
+[90mGET /phpMyAdmin/scripts/setup.php [33m404 [90m2ms - 41b[0m
+[90mGET /phpMyAdmin/scripts/setup.php [33m404 [90m4ms - 41b[0m
+[90mGET /pma/scripts/setup.php [33m404 [90m1ms - 34b[0m
+[90mGET /pma/scripts/setup.php [33m404 [90m1ms - 34b[0m
+[90mGET /myadmin/scripts/setup.php [33m404 [90m1ms - 38b[0m
+[90mGET /myadmin/scripts/setup.php [33m404 [90m1ms - 38b[0m
+[90mGET /user/soapCaller.bs [33m404 [90m1ms - 31b[0m
+[90mGET /user/soapCaller.bs [33m404 [90m1ms - 31b[0m
+[90mOPTIONS / [32m200 [90m6ms - 8b[0m
+[90mOPTIONS / [32m200 [90m9ms - 8b[0m
+[90mPROPFIND / [33m404 [90m2ms - 18b[0m
+[90mPROPFIND / [33m404 [90m2ms - 18b[0m
+[90mPROPFIND / [33m404 [90m1ms - 18b[0m
+[90mPROPFIND / [33m404 [90m1ms - 18b[0m
+[90mGET / [32m200 [90m7ms[0m
+[90mGET /app/app.css [32m200 [90m24ms[0m
+[90mGET /bower_components/jquery/dist/jquery.js [33m404 [90m10ms[0m
+[90mGET /bower_components/jquery/dist/jquery.js [33m404 [90m10ms[0m
+[90mGET /bower_components/angular-resource/angular-resource.js [32m200 [90m28ms[0m
+[90mGET /bower_components/angular-cookies/angular-cookies.js [32m200 [90m43ms[0m
+[90mGET /bower_components/angular-sanitize/angular-sanitize.js [32m200 [90m45ms[0m
+[90mGET /bower_components/lodash/dist/lodash.compat.js [33m404 [90m41ms[0m
+[90mGET /bower_components/lodash/dist/lodash.compat.js [33m404 [90m42ms[0m
+[90mGET /bower_components/angular-bootstrap/ui-bootstrap-tpls.js [32m200 [90m93ms[0m
+[90mGET /bower_components/angular-socket-io/socket.js [32m200 [90m12ms[0m
+[90mGET /bower_components/angular-ui-router/release/angular-ui-router.js [32m200 [90m58ms[0m
+[90mGET /bower_components/webcomponentsjs/webcomponents.js [32m200 [90m87ms[0m
+[90mGET /socket.io-client/socket.io.js [33m404 [90m0ms - 42b[0m
+[90mGET /socket.io-client/socket.io.js [33m404 [90m5ms - 42b[0m
+[90mGET /app/app.js [32m200 [90m13ms - 326b[0m
+[90mGET /bower_components/angular/angular.js [32m200 [90m339ms[0m
+[90mGET /bower_components/polymer/polymer.js [32m200 [90m102ms[0m
+[90mGET /app/login/login.controller.js [32m200 [90m4ms - 134b[0m
+[90mGET /app/login/login.js [32m200 [90m4ms - 247b[0m
+[90mGET /app/main/main.controller.js [32m200 [90m4ms[0m
+[90mGET /app/main/main.js [32m200 [90m7ms - 238b[0m
+[90mGET /app/portada/portada.controller.js [32m200 [90m5ms - 769b[0m
+[90mGET /components/modal/modal.service.js [32m200 [90m9ms[0m
+[90mGET /app/portada/portada.js [32m200 [90m6ms - 257b[0m
+[90mGET /components/navbar/navbar.controller.js [32m200 [90m4ms - 306b[0m
+[90mGET /components/socket/socket.service.js [32m200 [90m5ms[0m
+[90mGET /bower_components/font-roboto/roboto.html [32m200 [90m5ms - 664b[0m
+[90mGET /bower_components/core-toolbar/core-toolbar.html [32m200 [90m6ms[0m
+[90mGET /bower_components/core-header-panel/core-header-panel.html [32m200 [90m5ms[0m
+[90mGET /bower_components/paper-tabs/paper-tabs.html [32m200 [90m6ms[0m
+[90mGET /app/polymer/post-card.html [33m404 [90m5ms[0m
+[90mGET /app/polymer/post-card.html [33m404 [90m6ms[0m
+[90mGET /bower_components/core-resizable/core-resizable.html [32m200 [90m21ms[0m
+[90mGET /bower_components/paper-icon-button/paper-icon-button.html [32m200 [90m21ms[0m
+[90mGET /bower_components/polymer/polymer.html [32m200 [90m15ms - 580b[0m
+[90mGET /bower_components/paper-tabs/paper-tab.html [32m200 [90m22ms[0m
+[90mGET /bower_components/core-selector/core-selector.html [32m200 [90m23ms[0m
+[90mGET /bower_components/core-icon/core-icon.html [32m200 [90m6ms[0m
+[90mGET /bower_components/core-icons/core-icons.html [32m200 [90m43ms[0m
+[90mGET /bower_components/paper-button/paper-button-base.html [32m200 [90m35ms[0m
+[90mGET /bower_components/paper-ripple/paper-ripple.html [32m200 [90m29ms[0m
+[90mGET /bower_components/core-selection/core-selection.html [32m200 [90m25ms[0m
+[90mGET /bower_components/polymer/layout.html [32m200 [90m8ms[0m
+[90mGET /bower_components/core-icon/core-icon.css [32m200 [90m5ms - 685b[0m
+[90mGET /bower_components/core-iconset/core-iconset.html [32m200 [90m6ms[0m
+[90mGET /bower_components/core-iconset-svg/core-iconset-svg.html [32m200 [90m7ms[0m
+[90mGET /bower_components/core-focusable/core-focusable.html [32m200 [90m5ms - 135b[0m
+[90mGET /bower_components/core-meta/core-meta.html [32m200 [90m15ms[0m
+[90mGET /bower_components/core-header-panel/core-header-panel.css [32m200 [90m16ms[0m
+[90mGET /bower_components/core-toolbar/core-toolbar.css [32m200 [90m15ms[0m
+[90mGET /bower_components/core-focusable/polymer-mixin.js [32m200 [90m7ms - 899b[0m
+[90mGET /bower_components/core-focusable/core-focusable.js [32m200 [90m10ms[0m
+[90mGET /bower_components/angular/angular.js [36m304 [90m2ms[0m
+[90mGET /bower_components/paper-tabs/paper-tab.css [32m200 [90m14ms[0m
+[90mGET /bower_components/paper-tabs/paper-tabs.css [32m200 [90m12ms[0m
+[90mGET /bower_components/angular-ui-router/release/angular-ui-router.js [36m304 [90m4ms[0m
+[90mGET /bower_components/webcomponentsjs/webcomponents.js [36m304 [90m3ms[0m
+[90mGET /favicon.ico [32m200 [90m9ms[0m
+[90mGET /login [32m200 [90m10ms[0m
+[90mGET /login [32m200 [90m13ms[0m
+[90mGET /favicon.ico [36m304 [90m3ms[0m
+[90mGET /portada [36m302 [90m7ms - 58b[0m
+[90mGET /portada [36m302 [90m7ms - 58b[0m
+[90mGET / [36m304 [90m3ms[0m
+[90mGET /app/app.css [36m304 [90m8ms[0m
+[90mGET /bower_components/font-roboto/roboto.html [36m304 [90m9ms[0m
+[90mGET /bower_components/jquery/dist/jquery.js [33m404 [90m10ms[0m
+[90mGET /bower_components/jquery/dist/jquery.js [33m404 [90m10ms[0m
+[90mGET /bower_components/paper-tabs/paper-tabs.html [36m304 [90m4ms[0m
+[90mGET /bower_components/core-header-panel/core-header-panel.html [36m304 [90m3ms[0m
+[90mGET /bower_components/core-toolbar/core-toolbar.html [36m304 [90m3ms[0m
+[90mGET /app/polymer/post-card.html [33m404 [90m8ms[0m
+[90mGET /app/polymer/post-card.html [33m404 [90m9ms[0m
+[90mGET /bower_components/angular/angular.js [36m304 [90m2ms[0m
+[90mGET /bower_components/angular-resource/angular-resource.js [36m304 [90m2ms[0m
+[90mGET /bower_components/angular-bootstrap/ui-bootstrap-tpls.js [36m304 [90m3ms[0m
+[90mGET /bower_components/angular-cookies/angular-cookies.js [36m304 [90m1ms[0m
+[90mGET /bower_components/angular-sanitize/angular-sanitize.js [36m304 [90m1ms[0m
+[90mGET /bower_components/lodash/dist/lodash.compat.js [33m404 [90m13ms[0m
+[90mGET /bower_components/lodash/dist/lodash.compat.js [33m404 [90m14ms[0m
+[90mGET /bower_components/angular-socket-io/socket.js [36m304 [90m10ms[0m
+[90mGET /bower_components/angular-ui-router/release/angular-ui-router.js [36m304 [90m4ms[0m
+[90mGET /app/app.js [36m304 [90m4ms[0m
+[90mGET /bower_components/webcomponentsjs/webcomponents.js [36m304 [90m4ms[0m
+[90mGET /bower_components/polymer/polymer.js [36m304 [90m2ms[0m
+[90mGET /socket.io-client/socket.io.js [33m404 [90m0ms - 42b[0m
+[90mGET /socket.io-client/socket.io.js [33m404 [90m1ms - 42b[0m
+[90mGET /app/login/login.controller.js [36m304 [90m2ms[0m
+[90mGET /app/login/login.js [36m304 [90m6ms[0m
+[90mGET /app/main/main.controller.js [36m304 [90m4ms[0m
+[90mGET /app/main/main.js [36m304 [90m3ms[0m
+[90mGET /app/portada/portada.controller.js [36m304 [90m2ms[0m
+[90mGET /components/modal/modal.service.js [36m304 [90m5ms[0m
+[90mGET /app/portada/portada.js [36m304 [90m4ms[0m
+[90mGET /components/navbar/navbar.controller.js [36m304 [90m4ms[0m
+[90mGET /components/socket/socket.service.js [36m304 [90m3ms[0m
+[90mGET /bower_components/core-selector/core-selector.html [36m304 [90m6ms[0m
+[90mGET /bower_components/core-resizable/core-resizable.html [36m304 [90m2ms[0m
+[90mGET /bower_components/paper-icon-button/paper-icon-button.html [36m304 [90m1ms[0m
+[90mGET /bower_components/paper-tabs/paper-tab.html [36m304 [90m2ms[0m
+[90mGET /bower_components/polymer/polymer.html [36m304 [90m2ms[0m
+[90mGET /bower_components/core-selection/core-selection.html [36m304 [90m3ms[0m
+[90mGET /bower_components/paper-button/paper-button-base.html [36m304 [90m7ms[0m
+[90mGET /bower_components/core-icons/core-icons.html [36m304 [90m3ms[0m
+[90mGET /bower_components/core-icon/core-icon.html [36m304 [90m1ms[0m
+[90mGET /bower_components/paper-ripple/paper-ripple.html [36m304 [90m1ms[0m
+[90mGET /bower_components/polymer/layout.html [36m304 [90m2ms[0m
+[90mGET /bower_components/polymer/polymer.js [36m304 [90m2ms[0m
+[90mGET /bower_components/core-iconset/core-iconset.html [36m304 [90m6ms[0m
+[90mGET /bower_components/core-iconset-svg/core-iconset-svg.html [36m304 [90m4ms[0m
+[90mGET /bower_components/core-icon/core-icon.css [36m304 [90m2ms[0m
+[90mGET /bower_components/core-focusable/core-focusable.html [36m304 [90m1ms[0m
+[90mGET /bower_components/core-header-panel/core-header-panel.css [36m304 [90m9ms[0m
+[90mGET /bower_components/core-toolbar/core-toolbar.css [36m304 [90m3ms[0m
+[90mGET /bower_components/core-focusable/core-focusable.js [36m304 [90m3ms[0m
+[90mGET /bower_components/core-focusable/polymer-mixin.js [36m304 [90m4ms[0m
+[90mGET /bower_components/core-meta/core-meta.html [36m304 [90m4ms[0m
+[90mGET /bower_components/paper-tabs/paper-tabs.css [36m304 [90m4ms[0m
+[90mGET /bower_components/paper-tabs/paper-tab.css [36m304 [90m3ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mGET /login [36m304 [90m1ms[0m
+[90mGET /login [36m304 [90m2ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mGET /phpMyAdmin/scripts/setup.php [33m404 [90m4ms - 41b[0m
+[90mGET /phpMyAdmin/scripts/setup.php [33m404 [90m7ms - 41b[0m
+[90mGET /pma/scripts/setup.php [33m404 [90m1ms - 34b[0m
+[90mGET /pma/scripts/setup.php [33m404 [90m3ms - 34b[0m
+[90mGET /myadmin/scripts/setup.php [33m404 [90m1ms - 38b[0m
+[90mGET /myadmin/scripts/setup.php [33m404 [90m6ms - 38b[0m
+[90mGET /login [36m304 [90m3ms[0m
+[90mGET /login [36m304 [90m5ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mPOST /login [36m302 [90m108ms - 68b[0m
+[90mPOST /login [36m302 [90m108ms - 68b[0m
+[90mGET /login [32m200 [90m28ms[0m
+[90mGET /login [32m200 [90m30ms[0m
+[90mGET /favicon.ico [36m304 [90m22ms[0m
+[90mPOST /login [36m302 [90m30ms - 68b[0m
+[90mPOST /login [36m302 [90m33ms - 68b[0m
+[90mGET /login [32m200 [90m16ms[0m
+[90mGET /login [32m200 [90m16ms[0m
+[90mGET /favicon.ico [36m304 [90m2ms[0m
+[90mPOST /login [36m302 [90m11ms - 68b[0m
+[90mPOST /login [36m302 [90m13ms - 68b[0m
+[90mPOST /login [36m302 [90m2ms - 68b[0m
+[90mPOST /login [36m302 [90m3ms - 68b[0m
+[90mGET /favicon.ico [36m304 [90m6ms[0m
+[90mGET /login [32m200 [90m10ms[0m
+[90mGET /login [32m200 [90m11ms[0m
+[90mGET /favicon.ico [36m304 [90m6ms[0m
+[32m>> [39mFile "server/config/environment/test.js" changed.
+
+[4mRunning "express:dev" (express) task[24m
+[31mStopping[39m Express server
+[36mStarting [39mbackground Express server
+debugger listening on port 5858
+{ [Error: Cannot find module '../build/Release/bson'] code: 'MODULE_NOT_FOUND' }
+
+[4mRunning "wait" task[24m
+[32m>> [39mWaiting for server reload...
+js-bson: Failed to load c++ bson extension, using pure JS version
+client
+Express server listening on 80, in development mode
+Done waiting!
+
+[4mRunning "watch" task[24m
+[36mCompleted in 2.622s at Sat May 09 2015 08:47:12 GMT+0000 (UTC)[39m - Waiting...
+[90mGET /login [36m304 [90m12ms[0m
+[90mGET /login [36m304 [90m13ms[0m
+[90mGET /login [36m304 [90m4ms[0m
+[90mGET /login [36m304 [90m4ms[0m
+[90mGET /favicon.ico [36m304 [90m6ms[0m
+[90mGET /favicon.ico [36m304 [90m4ms[0m
+[32m>> [39mFile ".tmp/app/app.css" changed.
+[36mCompleted in 0.004s at Sat May 09 2015 08:47:47 GMT+0000 (UTC)[39m - Waiting...
+[32m>> [39mFile ".tmp/app/app.css" changed.
+[36mCompleted in 0.000s at Sat May 09 2015 08:47:50 GMT+0000 (UTC)[39m - Waiting...
+[32m>> [39mFile ".tmp/app/app.css" changed.
+[36mCompleted in 0.000s at Sat May 09 2015 08:47:54 GMT+0000 (UTC)[39m - Waiting...

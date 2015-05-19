@@ -1,25 +1,100 @@
 /**
  * Main application routes
  */
-
 'use strict';
 
 var errors = require('./components/errors');
 var config = require('./config/environment');
 
+module.exports = function(app, passport, mongoose) {
 
-module.exports = function(app, passport) {
- // Insert routes below
- app.use('/api/devices', require('./api/devices'));
-  app.use('/api/repo', require('./api/repo'));
-  app.use('/api/messages', require('./api/message'));
-  app.use('/api/things', require('./api/thing'));
+//===== API REST ====== //
+
+var devices   = require('./models/devices.js');
+var users     = require('./models/users.js');
+var pooltask  = require('./models/pooltask.js');
+
+
+//===== Devices ====== //
+app.get('/findAlldevices', function(req, res) {
+  	devices.find(function(err, devices) {
+  		if(!err) {
+        console.log('GET /devices')
+  			res.send(devices);
+  		} else {
+  			console.log('ERROR: ' + err);
+  		}
+  	});
+});
+
+app.get('/finddevice:id', function(req, res) {
+  	devices.findById(req.param.id, function(err, devices) {
+  		if(!err) {
+        console.log('GET /devices')
+  			res.send(devices);
+  		} else {
+  			console.log('ERROR: ' + err);
+  		}
+  	});
+});
+
+//===== Users ====== //
+app.get('/findAllUsers', function(req, res) {
+  	users.find(function(err, users) {
+  		if(!err) {
+        console.log('GET /users')
+  			res.send(users);
+  		} else {
+  			console.log('ERROR: ' + err);
+  		}
+  	});
+});
+
+
+//===== Pool Task ====== //
+app.get('/pooltask', function(req, res) {
+  pooltask.find(function(err, pooltask) {
+  		if(!err) {
+        console.log('GET /pooltask')
+  			res.send(pooltask);
+  		} else {
+  			console.log('ERROR: ' + err);
+  		}
+  	});
+});
+
+
+app.post('/newtask', function(req, res){
+    console.log('POST');
+    console.log(req.body);
+
+
+
+    var pooltask = new Pooltask({
+      device_id: req.body.device_id,
+      action   : req.body.action
+    });
+
+    pooltask.save(function(err) {
+      if(!err){
+        console.log('New action on the pool');
+      }
+      else {
+        console.log('ERROR:' + err);
+      }
+    });
+    res.send(pooltask);
+});
+
+//===== END API REST ====== //
+
 
 console.log(app.get('appPath'));
 
   // All undefined asset or api routes should return a 404
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);
+
 
   // All other routes should redirect to the index.html
   //Parche para poder acceder a portada creo que falla algon con
@@ -29,6 +104,8 @@ console.log(app.get('appPath'));
       res.sendFile(config.root + '/client/app/portada/portada.html');
     });
     console.log(config.root);
+
+// PASSPORT ===============================================================
 
 
 // normal routes ===============================================================
