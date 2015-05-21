@@ -1,6 +1,6 @@
 'use strict';
 
-var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp','ngResource', 'ui.bootstrap']);
+var app = angular.module('connectedHouseApp',  ['mongolabResourceHttp','ngResource', 'ui.bootstrap', 'ngRoute']);
 
 
 app.constant('MONGOLAB_CONFIG',{API_KEY:'2UkXrp3c_Kk9rJgB3PBfNL1zH2lg_xSd', DB_NAME:'ch-repo'});
@@ -18,28 +18,28 @@ app.factory('Status', function ($mongolabResourceHttp) {
 });
 
 
-app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Actions, Status) {
+app.controller('PortadaCtrl', function ($scope, $http,$resource,$route,$window,$location ,Devices, Actions, Status) {
 
       $scope.mytime = new Date();
       $scope.hstep = 1;
       $scope.mstep = 1;
       $scope.toggle = true;
       //$http.get('http://localhost:9000/findAlldevices').
-      $http.get('http://localhost:9000/findAlldevices').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/findAlldevices').
         success(function(data, status, headers, config) {
           $scope.devices = data;
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });
 
-      $http.get('http://localhost:9000/findAllUsers').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/findAllUsers').
         success(function(data, status, headers, config) {
           $scope.users = data;
       }).error(function(data, status, headers, config) {
           alert('Error!');
       });
 
-      $http.get('http://localhost:9000/tasks').
+      $http.get('http://connectedhouseweb.no-ip.org:9000/tasks').
         success(function(data, status, headers, config) {
           $scope.tasks = data;
       }).error(function(data, status, headers, config) {
@@ -84,18 +84,19 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
 
 
 
-        $http.post('http://localhost:9000/newtask',
+        $http.post('http://connectedhouseweb.no-ip.org:9000/newtask',
             {device_id: deviceid,action : action, date:time}
         ).success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {
           alert('Error!');
         });
+	$window.location.reload();
       }
 
       $scope.newname = function(deviceid,devicename,device_id,address,status){
 
-        var path = 'http://localhost:9000/changestatus' + deviceid;
+        var path = 'http://connectedhouseweb.no-ip.org:9000/changestatus' + deviceid;
         $http.put(path,
            { name: devicename,
              device_id : device_id,
@@ -107,27 +108,34 @@ app.controller('PortadaCtrl', function ($scope, $http,$resource ,Devices, Action
         }).error(function(data, status, headers, config) {
           alert('Error!');
         });
+	$window.location.reload();
       }
 
       $scope.deletetask = function(task_id){
-        var path = 'http://localhost:9000/deletetask' + task_id;
+        var path = 'http://connectedhouseweb.no-ip.org:9000/deletetask' + task_id;
         $http.delete(path
         ).success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {
             alert('Error!');
           });
-      }
+       $window.location.reload();
+       // $location.path('http://localhost:9000/portada');
+        //$route.reload();
+	
 
+      }
+      
 
       $scope.newuser = function(user, password) {
-        $http.post('http://localhost:9000/signup',
+        $http.post('http://connectedhouseweb.no-ip.org:9000/signup',
             {user: user,password : password}
         ).success(function(data, status, headers, config) {
 
         }).error(function(data, status, headers, config) {
           alert('Error!');
         });
+	$window.location.reload();
       }
 
 });

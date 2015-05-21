@@ -5,7 +5,7 @@
 module.exports = {
   // MongoDB connection options
   mongo: {
-    uri: 'mongodb://localhost/connectedhouse-dev'
+    uri: 'mongodb://connectedhouseweb.no-ip.org/connectedhouse-dev'
   },
 
   seedDB: false

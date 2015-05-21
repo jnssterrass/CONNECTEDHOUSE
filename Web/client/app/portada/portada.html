@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
 
 <script src="/bower_components/angular/angular.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+<script src="/bower_components/angular-ui-router/release/angular-ui-router-min.js"></script>
+<script src="/bower_components/angular-route/angular-route.js"></script>
+<script src="/bower_components/angular-route/angular-route.min.js"></script>
+
 <script src="/bower_components/angular-bootstrap/ui-bootstrap-tpls.js"></script>
 <script src="/bower_components/webcomponentsjs/webcomponents.js"> </script>
 <link rel="import" href="/bower_components/font-roboto/roboto.html">
@@ -68,15 +73,15 @@ text-transform: uppercase;
   <core-toolbar>
       <paper-tabs id="tabs" selected="all" self-end>
           <paper-tab name="Devices" ng-click="toggle = true"> Devices </paper-tab>
-          <paper-tab name="Config"  ng-click="toggle = false"> Config </paper-tab>
+          <paper-tab name="Config"  ng-click="toggle = false"> Users </paper-tab>
       </paper-tabs>
   </core-toolbar>
 
   <!-- DEVICES -->
   <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
   <div flex wrap layout horizontal class="container" ng-show="toggle"  ng-repeat ="device in devices">
-      <post-card class="test">
-        <img width="70" height="70" src="/assets/images/{{device.device_id}}.png">
+      <post-card>
+        <img width="70" height="70" src="/assets/images/{{device.device_id}}.jpg">
           <h2 ng-hide="showme">{{device.name}}</h2>
           <h2><div ng-show="showme">
             <label>Custom name: <input type="text" ng-model="name"></label><br>
@@ -95,7 +100,7 @@ text-transform: uppercase;
           <p> Scheduled Tasks: </p>
           <ul ng-repeat="task in tasks | filter:{'device_id':device._id}">
             <li ng-repeat="action_info in actions_info | filter: {'action_id': task.action}"> {{action_info.dsc}} at {{task.date}}
-              <button type="submit" class="btn btn-default" ng-click="deletetask(task._id)">Remove</button>
+              <button type="submit" class="btn btn-default" ng-click="deletetask(task._id)" ng-click="reloadRoute()">Remove</button>
             </li>
           </ul>
 
@@ -127,33 +132,30 @@ text-transform: uppercase;
     </div>
 
     <!-- USERS -->
+     
      <core-media-query query="max-width: 480px" queryMatches="{{phoneScreen}}"></core-media-query>
 
     <div flex wrap layout horizontal class="container" ng-hide="toggle">
-      <div flex ng-repeat="user in users">
-      <post-card-users class="test">
-        <img width="70" height="70" src="/assets/images/avatar.jpg">
-        <h2> {{user.local.user}} </h2>
-      </post-card-users>
+      <div flex layout auto-vertical ng-repeat="user in users"> 
+        <post-card-users>
+          <img width="70" height="70" src="/assets/images/avatar.jpg">
+          <h2> {{user.local.user}} </h2>
+        </post-card-users>
       </div>
 
       <br><br><br>
-
-      <div flex>
-      <post-card-users class="test">
+      <div flex layout auto-vertical>
+        <post-card-users>
           <img width="70" height="70" src="/assets/images/sum.png" ng-click="showsign=!showsign">
           <h2> New user </h2>
           <div ng-show="showsign">
               User:      <input type="text" ng-model="user"></label><br>
-              Password:  <input type="text" ng-model="password"></label><br>
+              Password:  <input type="password" ng-model="password"></label><br>
               <button type="submit" class="btn btn-default" ng-click="newuser(user, password)">New user</button>
           </div>
-      </post-card-users>
+        </post-card-users>
       </div>
    </div>
-
-  </div>
-
 <script src="/bower_components/angular-resource/angular-resource.min.js"></script>
 <script src="/assets/angular-mongolab.js"></script>
 <script src="/app/portada/portada.controller.js"></script>

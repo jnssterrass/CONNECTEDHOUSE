@@ -42,10 +42,10 @@ app.get('/findAlldevices', function(req, res) {
 });
 
 app.get('/finddevice:id', function(req, res) {
-  	devices.findById(req.param.id, function(err, Devices) {
+  	Devices.findById(req.param.id, function(err, devices) {
   		if(!err) {
         console.log('GET /devices')
-  			res.send(Devices);
+  			res.send(devices);
   		} else {
   			console.log('ERROR: ' + err);
   		}
@@ -194,7 +194,18 @@ console.log(app.get('appPath'));
   app.route('/:url(api|auth|components|app|bower_components|assets)/*')
    .get(errors[404]);
 
+
+  // All other routes should redirect to the index.html
+  //Parche para poder acceder a portada creo que falla algon con
+  //la BD. todo este app.route tiene que ir fuera
+  app.route('/portada')
+    .get(function(req, res) {
+      res.sendFile(config.root + '/client/app/portada/portada.html');
+    });
+    console.log(config.root);
+
 // PASSPORT ===============================================================
+
 
 // normal routes ===============================================================
 
