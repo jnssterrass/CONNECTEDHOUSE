@@ -1,7 +1,6 @@
 var express = require('express');
 var bodyparser = require('body-parser');
 var http = require('http');
-
 var app = express();
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({ extended: false }));
@@ -12,7 +11,6 @@ function postURL(url, data) {
     try {
 	var querystring = require('querystring');
 	var http = require('http');
-
 	var data = querystring.stringify(data);
 
 	var options = {
@@ -129,7 +127,6 @@ function loop(callback) {
 			switch (id) {
 				case '554133ea5a6531af894ff621':
 					var taskid = t._id;
-					console.log("LAMPARA!");
 					var data = {
 						'device': id,
 						'action': action,
@@ -141,7 +138,6 @@ function loop(callback) {
 					break;
 				case '554f622face87f411b1c018e':
 					var taskid = t._id;
-					console.log("LAMPARA!");
 					var data = {
 						'device': id,
 						'action': action,
@@ -152,22 +148,12 @@ function loop(callback) {
 					deleteURL('http://connectedhouseweb.no-ip.org:9000/deletetask'+taskid);
 					break;
 				default:
-					console.log("DEFAULT");
 		
 			} 
 		}
-		//var devices = getURL('http://connectedhouseweb.no-ip.org:9000/tasks');
 	}
 	
-	
-	
-	console.log(a);
 	if (a != undefined) console.log(a.response);
-	
-	//var str = JSON.stringify(a);
-	//console.log(str);
-	//var myJson = JSON.parse(str);
-	//console.log(myJson.response);
 	
 	console.log('-----------iteration---------------');
 	callback();
