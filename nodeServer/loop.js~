@@ -58,8 +58,7 @@ function getURL(url) {
 	var options = {
     		url: url,
     		method: 'GET',
-    		headers: headers,
-    		qs: {'key1': 'xxx', 'key2': 'yyy'}
+    		headers: headers
 	}
 
 	// Start the request
@@ -90,8 +89,7 @@ function deleteURL(url) {
 	var options = {
     		url: url,
     		method: 'DELETE',
-    		headers: headers,
-    		qs: {'key1': 'xxx', 'key2': 'yyy'}
+    		headers: headers
 	}
 
 	// Start the request
