@@ -121,7 +121,7 @@ void loop() {
    
     // Print request
     Serial.println("request processed");
-    Serial.print(request);
+    //Serial.print(request);
     
     // Process request to get DEVICE, ACTION and VALUE
     String DEVICE = "";
@@ -147,6 +147,7 @@ void loop() {
     else Serial.println("request without device");
 
     // Perform actions
+    // Ikea Lamp
     if(DEVICE == "554133ea5a6531af894ff621") {
       if (ACTION == "a1") {
         digitalWrite(2, HIGH);
@@ -154,25 +155,6 @@ void loop() {
       } else if (ACTION == "a2") {
         digitalWrite(2, LOW);
         sendPOSTResponse(client,DEVICE,ACTION,VALUE,"a2");
-      } else {
-        sendPOSTResponse(client,DEVICE,ACTION,VALUE,"unknown_action");
-      }
-    }
-    else if(DEVICE == "554f622face87f411b1c018e") {
-      if (ACTION == "a3") {
-        digitalWrite(3, HIGH);
-        sendPOSTResponse(client,DEVICE,ACTION,VALUE,"a3");
-      } else if (ACTION == "a4") {
-        digitalWrite(3, LOW);
-        sendPOSTResponse(client,DEVICE,ACTION,VALUE,"a4");
-      } else {
-        sendPOSTResponse(client,DEVICE,ACTION,VALUE,"unknown_action");
-      }
-    }
-    else if(DEVICE == "sensor") {
-      if (ACTION == "read") {
-        int readValue = digitalRead(4);
-        sendPOSTResponse(client,DEVICE,ACTION,VALUE,String(readValue));
       } else {
         sendPOSTResponse(client,DEVICE,ACTION,VALUE,"unknown_action");
       }
