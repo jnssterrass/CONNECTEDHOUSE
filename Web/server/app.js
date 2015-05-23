@@ -26,8 +26,6 @@ var app = express();
     app.use(bodyParser.urlencoded({ extended: false }));
 var server = require('http').createServer(app);
 
-app.use(express.compress());
-
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
