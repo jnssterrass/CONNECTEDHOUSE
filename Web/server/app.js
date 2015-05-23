@@ -35,6 +35,15 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+// enable caching
+app.use(function (req, res, next) {
+    if (req.url.match(/^\/(css|js|img|font)\/.+/)) {
+        res.setHeader('Cache-Control', 'public, max-age=3600');
+    }
+    next();
+});
+// end caching
+
 require('./config/express')(app);
 require('./config/passport')(passport);
 require('./routes')(app,passport, mongoose);
