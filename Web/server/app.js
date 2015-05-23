@@ -35,6 +35,13 @@ app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
 
+// Para activar el caching
+app.configure('production', function(){
+  var oneYear = 31557600000;
+  app.use(express.static(__dirname + '/public', { maxAge: oneYear }));
+  app.use(express.errorHandler());
+});
+
 require('./config/express')(app);
 require('./config/passport')(passport);
 require('./routes')(app,passport, mongoose);
