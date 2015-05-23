@@ -26,6 +26,8 @@ var app = express();
     app.use(bodyParser.urlencoded({ extended: false }));
 var server = require('http').createServer(app);
 
+app.use(express.compress());
+
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
@@ -34,15 +36,6 @@ app.use(session({ secret: 'ilovescotchscotchyscotchscotch' }));
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(flash());
-
-// enable caching
-app.use(function (req, res, next) {
-    if (req.url.match(/^\/(css|js|img|font)\/.+/)) {
-        res.setHeader('Cache-Control', 'public, max-age=3600');
-    }
-    next();
-});
-// end caching
 
 require('./config/express')(app);
 require('./config/passport')(passport);
