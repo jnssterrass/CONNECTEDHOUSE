@@ -174,13 +174,16 @@ app.post('/newtask', function(req, res){
 
 app.delete('/deletetask:id', function(req, res) {
     Tasks.findById(req.params.id, function(err, tasks) {
-      tasks.remove(function(err) {
-  			if(!err) {
-  				console.log('Removed');
-  			} else {
-  				console.log('ERROR: ' + err);
-  			}
-  		})
+      	try {
+			tasks.remove(function(err) {
+				if(!err) {
+					console.log('Removed');
+				} else {
+					console.log('ERROR: ' + err);
+				}
+			})
+  		}
+  		catch () {}
   	});
 });
 
