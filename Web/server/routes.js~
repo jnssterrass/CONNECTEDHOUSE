@@ -183,7 +183,7 @@ app.delete('/deletetask:id', function(req, res) {
 				}
 			})
   		}
-  		catch (err) {}
+  		catch () {}
   	});
 });
 
