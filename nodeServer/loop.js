@@ -28,9 +28,10 @@ function postURL(url, data) {
 			if (resp.statusCode == 200) {
 				resp.setEncoding('utf8');
 				resp.on('data', function (chunk) {
-					if (chunk != null) res = JSON.parse(chunk);
+					//if (chunk != null) res = JSON.parse(chunk);
+					console.log(chunk);
 				});
-				console.log("GUUUUUT!");
+				//console.log("GUUUUUT!");
 			} else {
 				console.log("BaaaT - Man!");
 			}
@@ -44,7 +45,7 @@ function postURL(url, data) {
 }
 
 function getURL(url) {
-	try {
+	//try {
 		var request = require('request');
 
 		// Set the headers
@@ -71,8 +72,8 @@ function getURL(url) {
 			}
 		})
 		return res;
-    } 
-    catch(err) {}
+    //} 
+    //catch(err) {}
 }
 
 function deleteURL(url) {
