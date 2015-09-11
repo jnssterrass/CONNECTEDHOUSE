@@ -1,4 +1,5 @@
-# CONNECTEDHOUSE   
-PTI UPC  - 2015 
+# CONNECTED HOUSE   
+A project for admin IoT home-use devices. Full Stack + Polymer, Web and Android Application.
 
-A project for admin IoT home-use devices.  
+![ScreenShot](http://i.imgur.com/pM6kLZD.png)
+PTI UPC - 2015
