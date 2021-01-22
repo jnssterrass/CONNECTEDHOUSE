@@ -15,6 +15,7 @@
 
 #include <SPI.h>
 #include <Ethernet.h>
+#include <Servo.h>
 
 // Enter a MAC address and IP address for your controller below.
 // The IP address will be dependent on your local network:
@@ -31,6 +32,8 @@ boolean relay2_level = LOW;
 // with the IP address and port you want to use
 // (port 80 is default for HTTP):
 EthernetServer server(80);
+Servo myservo;
+int angle;
 
 void setup() {
   // Open serial communications and wait for port to open:
@@ -47,6 +50,8 @@ void setup() {
   pinMode(2, OUTPUT);
   pinMode(3, OUTPUT);
   pinMode(4, INPUT);
+  myservo.attach(9);  // attaches the servo on pin 9 to the servo object
+  servoInitPosition();
 }
 
 String getDevice(const String& request) {
@@ -98,6 +103,24 @@ void sendPOSTResponse(EthernetClient& client, String device, String action, Stri
   aux += response;
   aux += "\"}";
   innerSendResponse(client,aux);
+}
+
+void servoInitPosition() {
+  angle = 0;
+  angle=constrain(angle,0,180);
+  myservo.write(angle);
+}
+
+void servoStepForward() {
+  angle += 10;
+  angle=constrain(angle,0,180);
+  myservo.write(angle);
+}
+
+void servoStepBackwards() {
+  angle -= 10;
+  angle=constrain(angle,0,180);
+  myservo.write(angle);
 }
 
 void loop() {
@@ -160,10 +183,10 @@ void loop() {
     }
     else if(DEVICE == "554f622face87f411b1c018e") {
       if (ACTION == "a3") {
-        digitalWrite(3, HIGH);
+        servoStepForward();
         sendPOSTResponse(client,DEVICE,ACTION,VALUE,"a3");
       } else if (ACTION == "a4") {
-        digitalWrite(3, LOW);
+        servoStepBackwards();
         sendPOSTResponse(client,DEVICE,ACTION,VALUE,"a4");
       } else {
         sendPOSTResponse(client,DEVICE,ACTION,VALUE,"unknown_action");
